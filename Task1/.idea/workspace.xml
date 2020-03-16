@@ -1,13 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="e090e7bc-bf6b-4bc3-9022-9f76427e6768" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/Task1.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Parser.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Parser.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/ParserTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/ParserTest.java" afterDir="false" />
-    </list>
+    <list default="true" id="e090e7bc-bf6b-4bc3-9022-9f76427e6768" name="Default Changelist" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -103,9 +97,25 @@
       <option name="presentableId" value="Default" />
       <updated>1584385986783</updated>
     </task>
+    <task id="LOCAL-00001" summary="Added executor">
+      <created>1584393781278</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1584393781278</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Added executor" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added executor" />
+  </component>
   <component name="WindowStateProjectService">
+    <state x="0" y="23" key="CommitChangelistDialog2" timestamp="1584393780696">
+      <screen x="0" y="23" width="1280" height="727" />
+    </state>
+    <state x="0" y="23" key="CommitChangelistDialog2/0.23.1280.727/1280.-257.1920.1057@0.23.1280.727" timestamp="1584393780696" />
     <state width="1218" height="169" key="GridCell.Tab.0.bottom" timestamp="1584388579249">
       <screen x="0" y="23" width="1280" height="727" />
     </state>
@@ -146,5 +156,9 @@
       <screen x="0" y="23" width="1280" height="727" />
     </state>
     <state x="149" y="23" key="SettingsEditor/0.23.1280.727/1280.-257.1920.1057@0.23.1280.727" timestamp="1584386918647" />
+    <state x="271" y="180" key="Vcs.Push.Dialog.v2" timestamp="1584393787845">
+      <screen x="0" y="23" width="1280" height="727" />
+    </state>
+    <state x="271" y="180" key="Vcs.Push.Dialog.v2/0.23.1280.727/1280.-257.1920.1057@0.23.1280.727" timestamp="1584393787845" />
   </component>
 </project>
