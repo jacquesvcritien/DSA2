@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="e090e7bc-bf6b-4bc3-9022-9f76427e6768" name="Default Changelist" comment="" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="MavenImportPreferences">
+    <option name="importingSettings">
+      <MavenImportingSettings>
+        <option name="importAutomatically" value="true" />
+      </MavenImportingSettings>
+    </option>
+  </component>
+  <component name="ProjectId" id="1ZDuSgJKbdXIcpJ0vzR8suJhXnu" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showExcludedFiles" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/main" />
+    <property name="project.structure.last.edited" value="Project" />
+    <property name="project.structure.proportion" value="0.0" />
+    <property name="project.structure.side.proportion" value="0.0" />
+  </component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/main/java" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/main" />
+      <recent name="$PROJECT_DIR$/src/main/java" />
+    </key>
+  </component>
+  <component name="RunManager" selected="JUnit.ParserTest">
+    <configuration name="ParserTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="Task1" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="ParserTest" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="ParserTest.testParseStringEmpty" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="Task1" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="ParserTest" />
+      <option name="METHOD_NAME" value="testParseStringEmpty" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="ParserTest.testParseStringWrongLetters" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="Task1" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="ParserTest" />
+      <option name="METHOD_NAME" value="testParseStringWrongLetters" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="JUnit.ParserTest" />
+        <item itemvalue="JUnit.ParserTest.testParseStringWrongLetters" />
+        <item itemvalue="JUnit.ParserTest.testParseStringEmpty" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="e090e7bc-bf6b-4bc3-9022-9f76427e6768" name="Default Changelist" comment="" />
+      <created>1584385986783</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1584385986783</updated>
+    </task>
+    <servers />
+  </component>
+  <component name="WindowStateProjectService">
+    <state width="1218" height="169" key="GridCell.Tab.0.bottom" timestamp="1584388579249">
+      <screen x="0" y="23" width="1280" height="727" />
+    </state>
+    <state width="1218" height="169" key="GridCell.Tab.0.bottom/0.23.1280.727/1280.-257.1920.1057@0.23.1280.727" timestamp="1584388579249" />
+    <state width="1218" height="169" key="GridCell.Tab.0.center" timestamp="1584388579248">
+      <screen x="0" y="23" width="1280" height="727" />
+    </state>
+    <state width="1218" height="169" key="GridCell.Tab.0.center/0.23.1280.727/1280.-257.1920.1057@0.23.1280.727" timestamp="1584388579248" />
+    <state width="1218" height="169" key="GridCell.Tab.0.left" timestamp="1584388579247">
+      <screen x="0" y="23" width="1280" height="727" />
+    </state>
+    <state width="1218" height="169" key="GridCell.Tab.0.left/0.23.1280.727/1280.-257.1920.1057@0.23.1280.727" timestamp="1584388579247" />
+    <state width="1218" height="169" key="GridCell.Tab.0.right" timestamp="1584388579249">
+      <screen x="0" y="23" width="1280" height="727" />
+    </state>
+    <state width="1218" height="169" key="GridCell.Tab.0.right/0.23.1280.727/1280.-257.1920.1057@0.23.1280.727" timestamp="1584388579249" />
+    <state width="1218" height="210" key="GridCell.Tab.1.bottom" timestamp="1584388509631">
+      <screen x="0" y="23" width="1280" height="727" />
+    </state>
+    <state width="1218" height="210" key="GridCell.Tab.1.bottom/0.23.1280.727/1280.-257.1920.1057@0.23.1280.727" timestamp="1584388509631" />
+    <state width="1218" height="210" key="GridCell.Tab.1.center" timestamp="1584388509629">
+      <screen x="0" y="23" width="1280" height="727" />
+    </state>
+    <state width="1218" height="210" key="GridCell.Tab.1.center/0.23.1280.727/1280.-257.1920.1057@0.23.1280.727" timestamp="1584388509629" />
+    <state width="1218" height="210" key="GridCell.Tab.1.left" timestamp="1584388509628">
+      <screen x="0" y="23" width="1280" height="727" />
+    </state>
+    <state width="1218" height="210" key="GridCell.Tab.1.left/0.23.1280.727/1280.-257.1920.1057@0.23.1280.727" timestamp="1584388509628" />
+    <state width="1218" height="210" key="GridCell.Tab.1.right" timestamp="1584388509630">
+      <screen x="0" y="23" width="1280" height="727" />
+    </state>
+    <state width="1218" height="210" key="GridCell.Tab.1.right/0.23.1280.727/1280.-257.1920.1057@0.23.1280.727" timestamp="1584388509630" />
+    <state x="1537" y="-146" key="Maven.ArtifactSearchDialog" timestamp="1584386588536">
+      <screen x="1280" y="-257" width="1920" height="1057" />
+    </state>
+    <state x="1537" y="-146" key="Maven.ArtifactSearchDialog/0.23.1280.727/1280.-257.1920.1057@1280.-257.1920.1057" timestamp="1584386588536" />
+    <state x="149" y="23" key="SettingsEditor" timestamp="1584386918647">
+      <screen x="0" y="23" width="1280" height="727" />
+    </state>
+    <state x="149" y="23" key="SettingsEditor/0.23.1280.727/1280.-257.1920.1057@0.23.1280.727" timestamp="1584386918647" />
+  </component>
+</project>
