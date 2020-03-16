@@ -32,6 +32,7 @@
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
+    <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
@@ -112,10 +113,10 @@
     <option name="LAST_COMMIT_MESSAGE" value="Added executor" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="0" y="23" key="CommitChangelistDialog2" timestamp="1584393780696">
+    <state x="0" y="23" key="CommitChangelistDialog2" timestamp="1584393979881">
       <screen x="0" y="23" width="1280" height="727" />
     </state>
-    <state x="0" y="23" key="CommitChangelistDialog2/0.23.1280.727/1280.-257.1920.1057@0.23.1280.727" timestamp="1584393780696" />
+    <state x="0" y="23" key="CommitChangelistDialog2/0.23.1280.727/1280.-257.1920.1057@0.23.1280.727" timestamp="1584393979881" />
     <state width="1218" height="169" key="GridCell.Tab.0.bottom" timestamp="1584388579249">
       <screen x="0" y="23" width="1280" height="727" />
     </state>
@@ -156,9 +157,9 @@
       <screen x="0" y="23" width="1280" height="727" />
     </state>
     <state x="149" y="23" key="SettingsEditor/0.23.1280.727/1280.-257.1920.1057@0.23.1280.727" timestamp="1584386918647" />
-    <state x="271" y="180" key="Vcs.Push.Dialog.v2" timestamp="1584393787845">
+    <state x="271" y="180" key="Vcs.Push.Dialog.v2" timestamp="1584394002988">
       <screen x="0" y="23" width="1280" height="727" />
     </state>
-    <state x="271" y="180" key="Vcs.Push.Dialog.v2/0.23.1280.727/1280.-257.1920.1057@0.23.1280.727" timestamp="1584393787845" />
+    <state x="271" y="180" key="Vcs.Push.Dialog.v2/0.23.1280.727/1280.-257.1920.1057@0.23.1280.727" timestamp="1584394002988" />
   </component>
 </project>
