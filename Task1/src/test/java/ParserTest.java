@@ -47,6 +47,56 @@ public class ParserTest {
         assertEquals("Asserting clause 2 has 2 literals", 2, clauses.get(1).getLiterals().size());
     }
 
+    @Test
+    public void checkTriviallyUnSatEmpty(){
+        ArrayList<Clause> emptyClauses = new ArrayList<Clause>();
+        assertFalse(Parser.checkTriviallyUnSat(emptyClauses));
+    }
+
+    @Test
+    public void checkTriviallyUnSatOneClause() throws SyntaxErrorException {
+        ArrayList<Clause> clauses = Parser.parseString("(x)");
+        assertFalse(Parser.checkTriviallyUnSat(clauses));
+    }
+
+    @Test
+    public void checkTriviallyUnSatTwoClauseFalse() throws SyntaxErrorException {
+        ArrayList<Clause> clauses = Parser.parseString("(x,y)(x,z)");
+        assertFalse(Parser.checkTriviallyUnSat(clauses));
+    }
+
+    @Test
+    public void checkTriviallyUnSatTrue() throws SyntaxErrorException {
+        ArrayList<Clause> clauses = Parser.parseString("(x)(!x)");
+        assertTrue(Parser.checkTriviallyUnSat(clauses));
+    }
+
+    @Test
+    public void testRemoveTriviallySatEmpty() throws SyntaxErrorException {
+        ArrayList<Clause> emptyClauses = new ArrayList<Clause>();
+        assertEquals(emptyClauses, Parser.removeTriviallySat(emptyClauses));
+    }
+
+    @Test
+    public void testRemoveTriviallySatNotSatBySize() throws SyntaxErrorException {
+        ArrayList<Clause> clauses = Parser.parseString("(x,y)(!x,z)");
+        assertEquals(clauses, Parser.removeTriviallySat(clauses));
+    }
+
+    @Test
+    public void testRemoveTriviallySatBySizeRemove1() throws SyntaxErrorException {
+        ArrayList<Clause> clauses = Parser.parseString("(x,!x)(y)");
+        assertEquals(clauses.size()-1, Parser.removeTriviallySat(clauses).size());
+    }
+
+    @Test
+    public void testRemoveTriviallySatBySizeRemove2() throws SyntaxErrorException {
+        ArrayList<Clause> clauses = Parser.parseString("(x,!x)(y)(!z,z)");
+        assertEquals(clauses.size()-2, Parser.removeTriviallySat(clauses).size());
+    }
+
+
+
 
 
 

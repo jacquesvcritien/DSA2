@@ -73,4 +73,125 @@ public class Parser {
             System.out.println("");
         }
     }
+
+    /**
+     * Method which checks if there are any trivially unsatisfiable clauses from a list of clauses
+     * form should be (x)(!x)
+     * @param clauses clauses to check
+     * @return true if a trivially unsatisfiable clause is found
+     */
+    public static boolean checkTriviallyUnSat(ArrayList<Clause> clauses)
+    {
+        for(int i = 0; i < clauses.size(); i++)
+        {
+            Clause first = clauses.get(i);
+
+            //if the first clause has more than 1 literal
+            if(first.getLiterals().size() > 1)
+                continue;
+
+            for(int j = 0; j < clauses.size(); j++)
+            {
+                Clause second = clauses.get(j);
+                //if the second clause has more than 1 literal
+                if(second.getLiterals().size() > 1)
+                    continue;
+
+                //get first clause's literal
+                Literal firstClauseLiteral = first.getLiterals().get(0);
+                //get second clause's literal
+                Literal secondClauseLiteral = second.getLiterals().get(0);
+
+                //if both clauses' literal have the same symbol but they're negation is different (xor)
+                if(firstClauseLiteral.getSymbol().equals(secondClauseLiteral.getSymbol()) && (firstClauseLiteral.isNegated() ^ secondClauseLiteral.isNegated()))
+                    return true;
+            }
+
+        }
+        return false;
+    }
+
+    /**
+     * Method which removes trivially satisfiable clauses from a list of clauses
+     * form should be (x, !x)
+     * @param clauses clauses to check
+     * @return list of clauses without trivially satisfiable clauses
+     */
+    public static ArrayList<Clause> removeTriviallySat(ArrayList<Clause> clauses)
+    {
+        //flag to check if removed
+        boolean removed = false;
+        for(int i = 0; i < clauses.size(); i++)
+        {
+            //set rmeoved to false
+            removed = false;
+            Clause clause = clauses.get(i);
+            //get clause literals
+            ArrayList<Literal> literals = clause.getLiterals();
+
+            //nested loop for clause's literals
+            for(int j =0; j < literals.size() && !removed; j++)
+            {
+                //get first literal
+                Literal first = literals.get(j);
+                for(int k =0; k < literals.size(); k++)
+                {
+                    //get second literal
+                    Literal second = literals.get(k);
+                    //if both clause's literals have the same symbol but they're negation is different (xor)
+                    if(first.getSymbol().equals(second.getSymbol()) && (first.isNegated() ^ second.isNegated()))
+                    {
+                        //remove clause
+                        clauses.remove(i);
+                        //decrement i
+                        i--;
+                        //set flag
+                        removed = true;
+                        //break and check next clause
+                        break;
+                    }
+                }
+            }
+
+        }
+        return clauses;
+    }
+
+    /**
+     * Method to get first literal from list of clauses
+     * @param clauses list of clauses
+     * @return first literal
+     */
+    public Literal getFirstLiteral(ArrayList<Clause> clauses)
+    {
+        //if size is bigger than 0
+        if(clauses.size() > 0) {
+            //get clause's literals
+            ArrayList<Literal> literals = clauses.get(0).getLiterals();
+            //if not empty literals
+            if (literals.size() > 0)
+                //return first literal
+                return literals.get(0);
+        }
+
+        return null;
+    }
+
+    public Literal getFirstLiteralNotNegated(ArrayList<Clause> clauses)
+    {
+
+        for(int i = 0; i  < clauses.size(); i++)
+        {
+            Clause clause = clauses.get(i);
+            ArrayList<Literal> literals = clause.getLiterals();
+            for(int j =0; j < literals.size(); j++)
+            {
+                Literal literal = literals.get(j);
+                if(!literal.isNegated())
+                    return literal;
+            }
+        }
+
+        return null;
+    }
 }

@@ -10,8 +10,14 @@ public class ParserExecutor {
             toParse.append(args[i]);
 
         Parser parser = new Parser();
+
+
         ArrayList<Clause> clauses = parser.parseString(toParse.toString());
 
+
+//        clauses = Parser.removeTriviallySat(clauses);
+
+        System.out.println("is unsat: "+Parser.checkTriviallyUnSat(clauses));
         Parser.printParsed(clauses);
     }
 }
