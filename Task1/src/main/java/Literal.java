@@ -4,6 +4,8 @@ public class Literal {
     boolean negated;
     Symbol symbol;
 
+    //empty constructor
+    public Literal() { }
     //constructor for literal
     public Literal(String stringLiteral) throws SyntaxErrorException {
         //check literal
@@ -32,5 +34,28 @@ public class Literal {
     //getter for symbol
     public Symbol getSymbol() {
         return symbol;
+    }
+
+    /**
+     * Method to compare a literal
+     * @param literal literal to compare against
+     * @return
+     */
+    public boolean equals(Literal literal)
+    {
+        //check symbol and negation
+        return ((this.negated == literal.negated) && (this.symbol == literal.symbol));
+    }
+
+    /**
+     * Method to clone a literal
+     * @return a cloned literal
+     */
+    public Literal clone()
+    {
+        Literal toReturn = new Literal();
+        toReturn.negated = this.negated;
+        toReturn.symbol = this.symbol;
+        return toReturn;
     }
 }

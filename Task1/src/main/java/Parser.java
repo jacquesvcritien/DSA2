@@ -1,7 +1,9 @@
 
 import exceptions.SyntaxErrorException;
 
+import java.lang.reflect.Array;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.StringTokenizer;
 
 public class Parser {
@@ -17,12 +19,13 @@ public class Parser {
         if(toParse.length() ==0)
             throw new SyntaxErrorException("String cannot be empty");
 
+        //remove spaces
+        toParse = toParse.replaceAll(" ","");
+
         //check for first and last parentheses
         if(!toParse.startsWith("(") || !toParse.endsWith(")"))
             throw new SyntaxErrorException("Input must start with with a ( and ends with a )");
 
-        //remove spaces
-        toParse = toParse.replaceAll(" ","");
 
         //remove first and last parentheses
         toParse = toParse.substring(1,toParse.length()-1);
@@ -57,6 +60,186 @@ public class Parser {
         return clauses;
     }
 
+    public static ArrayList<Clause> getUnitClauses(ArrayList<Clause> clauses)
+    {
+        //init list of clauses to return
+        ArrayList<Clause> toReturn = new ArrayList<Clause>();
+        //loop through each clause
+        for(int i=0; i < clauses.size(); i++)
+        {
+            //get current clause
+            Clause currentClause = clauses.get(i);
+            //if the clause contains 1 literal, add to the list to return
+            if(currentClause.getLiterals().size() == 1)
+                toReturn.add(currentClause);
+        }
+
+        return toReturn;
+    }
+
+    /**
+     * Method to get the next unit clause
+     * @param clauses list of clauses
+     * @return unit clause
+     */
+    public static Clause getUnitClause(ArrayList<Clause> clauses)
+    {
+        //loop through each clause
+        for(int i=0; i < clauses.size(); i++)
+        {
+            //get current clause
+            Clause currentClause = clauses.get(i);
+            ArrayList<Literal> clauseLiterals = currentClause.getLiterals();
+
+            //if the clause contains 1 literal, return it
+            if(clauseLiterals.size() == 1)
+            {
+                Literal lt = currentClause.getLiterals().get(0);
+                Clause toReturn = new Clause();
+                Literal literal = lt.clone();
+                toReturn.addLiteral(literal);
+
+                return toReturn;
+            }
+        }
+
+        return null;
+    }
+
+    /**
+     * Method to get the next pure literal
+     * @param clauses list of clauses
+     * @return the next pure literal
+     */
+    public static Literal getPureLiteral(ArrayList<Clause> clauses)
+    {
+        //boolean flag for searching
+        boolean searching;
+        //loop through each clause
+        for(int i=0; i < clauses.size(); i++)
+        {
+            //set searching to true
+            searching = true;
+            //get current clause
+            Clause currentClause = clauses.get(i);
+            //get current clause's literals
+            ArrayList<Literal> clauseLiterals = currentClause.getLiterals();
+
+            //loop through literals
+            for(int j=0; j < clauseLiterals.size(); j++)
+            {
+                //get current literal
+                Literal currentLiteral = clauseLiterals.get(j);
+
+                //loop again through clauses
+                for(int k = 0; k < clauses.size() && searching; k++)
+                {
+                    //get the second current clause
+                    Clause currentClause2 = clauses.get(k);
+                    //get the second current clause's literals
+                    ArrayList<Literal> clause2Literals = currentClause2.getLiterals();
+
+                    //loop through the second current clause's literals
+                    for(int l=0; l < clause2Literals.size(); l++)
+                    {
+                        //get the second current literal
+                        Literal currentLiteral2 = clause2Literals.get(l);
+
+                        //if a literal with the same symbol but inverted negation symbol, quit searching and break to check next literal
+                        if(currentLiteral.symbol.equals(currentLiteral2.symbol) && (currentLiteral.negated ^ currentLiteral2.negated))
+                        {
+                            searching = false;
+                            break;
+                        }
+                    }
+                }
+
+                //if there were no opposite literals
+                if(searching)
+                    return currentLiteral.clone();
+            }
+        }
+        //if no pures
+        return null;
+    }
+
+    /**
+     * Method to apply pure literal
+     * @param pure pure literal
+     * @param clauses list of clauses
+     * @return list of clauses after pure literal rule is applied
+     */
+    public static ArrayList<Clause> applyPureLiteralRule(Literal pure, ArrayList<Clause> clauses)
+    {
+        //loop through all clauses
+        for(int i=0; i < clauses.size(); i++)
+        {
+            Clause currentClause = clauses.get(i);
+            //get clause's literals
+            ArrayList<Literal> clauseLiterals = currentClause.getLiterals();
+            //loop through all literals
+            for(Literal literal: clauseLiterals)
+                //if literal is equal to pure, remove the clause
+                if(literal.equals(pure))
+                {
+                    clauses.remove(currentClause);
+                    i--;
+                    break;
+                }
+        }
+        return clauses;
+    }
+
+    /**
+     * Method which performs the 1 literal rule exhaustively
+     * @param clauses list of clauses
+     * @return a list of clauses after performing the 1 literal rule
+     */
+    public static ArrayList<Clause> exhaustivelyApply1LiteralRule(Clause clause, ArrayList<Clause> clauses)
+    {
+        //loop through all clauses
+        for(int i=0; i < clauses.size(); i++)
+        {
+            //get current clause
+            Clause currentClause = clauses.get(i);
+            //get unit clause's literal
+            Literal clauseLiteral = clause.literals.get(0);
+
+            //get current clause's literals
+            ArrayList<Literal> currentClauseLiterals = currentClause.getLiterals();
+
+            //loop through current clause's literals
+            for (int j = 0; j < currentClauseLiterals.size(); j++)
+            {
+                //get current literal
+                Literal currentLiteral = currentClauseLiterals.get(j);
+
+                //negate unit clause's literal
+                clauseLiteral.negated = !clauseLiteral.negated;
+
+                //if unit clause's literal is equal to the current literal, remove the literal from the clause
+                if (clauseLiteral.equals(currentLiteral)) {
+                    currentClauseLiterals.remove(j);
+                    j--;
+                }
+
+                //negate unit clause's literal (get original)
+                clauseLiteral.negated = !clauseLiteral.negated;
+                //if the unit clause's literal is equal to the current literal, remove clause
+                if (clauseLiteral.equals(currentLiteral)) {
+                    clauses.remove(i);
+                    i--;
+                    break;
+                }
+            }
+        }
+        return clauses;
+    }
+
+    /**
+     * Method to print the clauses parsed
+     * @param clauses a list of clauses
+     */
     public static void printParsed(ArrayList<Clause> clauses)
     {
         for(int i=0; i <clauses.size(); i++)
@@ -90,7 +273,7 @@ public class Parser {
             if(first.getLiterals().size() > 1)
                 continue;
 
-            for(int j = 0; j < clauses.size(); j++)
+            for(int j = i+1; j < clauses.size(); j++)
             {
                 Clause second = clauses.get(j);
                 //if the second clause has more than 1 literal
@@ -194,4 +377,61 @@ public class Parser {
 
         return null;
     }
+
+    /**
+     * Method to check if there are any empty clauses
+     * @param clauses clauses to check
+     * @return boolean whether there are empty clauses
+     */
+    public static boolean checkEmptyClause(ArrayList<Clause> clauses)
+    {
+        //loop through all clauses
+        for(int i=0; i <clauses.size();i++)
+            //if there is a clause with no literals, return true
+            if(clauses.get(i).getLiterals().isEmpty())
+                return true;
+
+        return false;
+    }
+
+    public static boolean DPLL(ArrayList<Clause> clauses)
+    {
+        //remove trivially satisfiable clauses
+        clauses = removeTriviallySat(clauses);
+
+        //If a clause is trivially unsatisfiable return false
+        if(checkTriviallyUnSat(clauses))
+            return false;
+
+        Parser.printParsed(clauses);
+        //get unit clauses
+        Clause unitClause = getUnitClause(clauses);
+
+        while(unitClause != null)
+        {
+            clauses = exhaustivelyApply1LiteralRule(unitClause, clauses);
+            unitClause = getUnitClause(clauses);
+        }
+
+        Literal pureLiteral = getPureLiteral(clauses);
+
+        while(pureLiteral != null)
+        {
+            clauses = applyPureLiteralRule(pureLiteral, clauses);
+            pureLiteral = getPureLiteral(clauses);
+        }
+
+        //if clauses contains an empty clause, return false
+        if(checkEmptyClause(clauses))
+            return false;
+
+        //if clauses is an empty set
+        if(clauses.isEmpty())
+            return true;
+
+        System.out.println("reached END");
+        return false;
+    }
+
+
 }

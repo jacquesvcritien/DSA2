@@ -48,7 +48,7 @@ public class ParserTest {
     }
 
     @Test
-    public void checkTriviallyUnSatEmpty(){
+    public void checkTriviallyUnSatEmpty() {
         ArrayList<Clause> emptyClauses = new ArrayList<Clause>();
         assertFalse(Parser.checkTriviallyUnSat(emptyClauses));
     }
@@ -61,13 +61,13 @@ public class ParserTest {
 
     @Test
     public void checkTriviallyUnSatTwoClauseFalse() throws SyntaxErrorException {
-        ArrayList<Clause> clauses = Parser.parseString("(x,y)(x,z)");
+        ArrayList<Clause> clauses = Parser.parseString("(x,y)(x,z)(!x,y)");
         assertFalse(Parser.checkTriviallyUnSat(clauses));
     }
 
     @Test
     public void checkTriviallyUnSatTrue() throws SyntaxErrorException {
-        ArrayList<Clause> clauses = Parser.parseString("(x)(!x)");
+        ArrayList<Clause> clauses = Parser.parseString("(x)(x,z)(!x,y)(!x)");
         assertTrue(Parser.checkTriviallyUnSat(clauses));
     }
 
@@ -86,19 +86,112 @@ public class ParserTest {
     @Test
     public void testRemoveTriviallySatBySizeRemove1() throws SyntaxErrorException {
         ArrayList<Clause> clauses = Parser.parseString("(x,!x)(y)");
-        assertEquals(clauses.size()-1, Parser.removeTriviallySat(clauses).size());
+        assertEquals(clauses.size() - 1, Parser.removeTriviallySat(clauses).size());
     }
 
     @Test
     public void testRemoveTriviallySatBySizeRemove2() throws SyntaxErrorException {
         ArrayList<Clause> clauses = Parser.parseString("(x,!x)(y)(!z,z)");
-        assertEquals(clauses.size()-2, Parser.removeTriviallySat(clauses).size());
+        assertEquals(clauses.size() - 2, Parser.removeTriviallySat(clauses).size());
+    }
+
+    @Test
+    public void testCheckEmptyClausesEmpty() throws SyntaxErrorException {
+
+        ArrayList<Clause> clauses = Parser.parseString("(x,!x)(y)(!z,z)");
+        Clause clause = new Clause();
+        clause.literals = new ArrayList<Literal>();
+
+        clauses.add(clause);
+
+        assertTrue(Parser.checkEmptyClause(clauses));
+    }
+
+    @Test
+    public void testCheckEmptyClausesNonEmpty() throws SyntaxErrorException {
+        ArrayList<Clause> clauses = Parser.parseString("(x,!x)(y)(!z,z)");
+
+        assertFalse(Parser.checkEmptyClause(clauses));
     }
 
 
+    @Test
+    public void testDPLL() throws SyntaxErrorException {
+        ArrayList<Clause> clauses = Parser.parseString("(x,!x)(y)(!z,z)");
 
+        assertFalse(Parser.DPLL(clauses));
+    }
 
+    @Test
+    public void testDPLL2() throws SyntaxErrorException {
+        ArrayList<Clause> clauses = Parser.parseString("(x,y)(x,z)(!x,y)");
 
+        assertFalse(Parser.DPLL(clauses));
+    }
 
+    @Test
+    public void testDPLL3() throws SyntaxErrorException {
+        ArrayList<Clause> clauses = Parser.parseString("(x)(!x)");
+
+        assertFalse(Parser.DPLL(clauses));
+    }
+
+    @Test
+    public void testDPLL4() throws SyntaxErrorException {
+        ArrayList<Clause> clauses = Parser.parseString("(z)");
+
+        assertFalse(Parser.DPLL(clauses));
+    }
+
+    @Test
+    public void testDPLL5() throws SyntaxErrorException {
+        ArrayList<Clause> clauses = Parser.parseString("(x, !x)");
+
+        assertTrue(Parser.DPLL(clauses));
+    }
+
+    @Test
+    public void testExhaustivelyApply1LiteralRule() throws SyntaxErrorException {
+        ArrayList<Clause> clauses = Parser.parseString("(x)(!x)");
+        Clause cl = new Clause();
+        Literal lt = new Literal("x");
+        cl.addLiteral(lt);
+        clauses = Parser.exhaustivelyApply1LiteralRule(cl, clauses);
+
+        assertEquals(1, clauses.size());
+    }
+
+    @Test
+    public void testDPLL6() throws SyntaxErrorException {
+        ArrayList<Clause> clauses = Parser.parseString("(x)(y, !x)(x, w)");
+
+        assertTrue(Parser.DPLL(clauses));
+    }
+
+    @Test
+    public void testGetPureLiteral() throws SyntaxErrorException {
+        ArrayList<Clause> clauses = Parser.parseString("(!x)(y, !x)(!x, w)");
+
+        Literal lt = Parser.getPureLiteral(clauses);
+
+        assertEquals(true, lt.negated);
+        assertEquals(Symbol.x, lt.symbol);
+    }
+
+    @Test
+    public void testApplyPureLiteralRule() throws SyntaxErrorException {
+        ArrayList<Clause> clauses = Parser.parseString("(!x)(y, x)(z,w)(y, w)");
+
+        Literal pureLiteral = Parser.getPureLiteral(clauses);
+
+        while(pureLiteral != null)
+        {
+            clauses = Parser.applyPureLiteralRule(pureLiteral, clauses);
+            Parser.printParsed(clauses);
+            pureLiteral = Parser.getPureLiteral(clauses);
+        }
+
+        assertEquals(0, clauses.size());
+    }
 
 }
