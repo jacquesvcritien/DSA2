@@ -1,6 +1,7 @@
 import exceptions.SyntaxErrorException;
 
 import java.util.ArrayList;
+import java.util.Set;
 
 public class ParserExecutor {
     public static void main(String args[]) throws SyntaxErrorException {
@@ -12,7 +13,7 @@ public class ParserExecutor {
         Parser parser = new Parser();
 
 
-        ArrayList<Clause> clauses = parser.parseString(toParse.toString());
+        Set<Clause> clauses = parser.parseString(toParse.toString());
 
 
 //        clauses = Parser.removeTriviallySat(clauses);
