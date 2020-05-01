@@ -1,7 +1,42 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="d6ac267e-85e1-41a9-b9e7-79dfc2f13ee4" name="Default Changelist" comment="" />
+    <list default="true" id="d6ac267e-85e1-41a9-b9e7-79dfc2f13ee4" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/../Documentation/Documentation.pdf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Documentation/Documentation.synctex.gz" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Documentation/Documentation.tex" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Documentation/references.bib" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Documentation/uom.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Task1/src/main/java/DPLL.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Task1/src/test/java/DPLLTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Task1/src/test/java/LiteralTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Task1/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../Task1/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Task1/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../Task1/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Task1/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../Task1/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Task1/src/main/java/Assignment.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Task1/src/main/java/Assignment.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Task1/src/main/java/Clause.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Task1/src/main/java/Clause.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Task1/src/main/java/Literal.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Task1/src/main/java/Literal.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Task1/src/main/java/Parser.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Task1/src/main/java/Parser.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Task1/src/main/java/ParserExecutor.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Task1/src/main/java/ParserExecutor.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Task1/src/main/java/Symbol.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Task1/src/main/java/Symbol.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Task1/src/main/java/exceptions/SyntaxErrorException.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Task1/src/main/java/exceptions/SyntaxErrorException.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Task1/src/test/java/ParserTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Task1/src/test/java/ParserTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Task1/target/classes/Clause.class" beforeDir="false" afterPath="$PROJECT_DIR$/../Task1/target/classes/Clause.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Task1/target/classes/Literal.class" beforeDir="false" afterPath="$PROJECT_DIR$/../Task1/target/classes/Literal.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Task1/target/classes/Parser.class" beforeDir="false" afterPath="$PROJECT_DIR$/../Task1/target/classes/Parser.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Task1/target/classes/ParserExecutor.class" beforeDir="false" afterPath="$PROJECT_DIR$/../Task1/target/classes/ParserExecutor.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Task1/target/classes/Symbol.class" beforeDir="false" afterPath="$PROJECT_DIR$/../Task1/target/classes/Symbol.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Task1/target/classes/exceptions/SyntaxErrorException.class" beforeDir="false" afterPath="$PROJECT_DIR$/../Task1/target/classes/exceptions/SyntaxErrorException.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Task1/target/test-classes/ParserTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/../Task1/target/test-classes/ParserTest.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/FileOperation.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/FileOperation.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/HuffManCodingExecutor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/HuffManCodingExecutor.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/HuffmanCoding.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/HuffmanCoding.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Node.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Node.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/NodeComparator.java" beforeDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -14,6 +49,9 @@
       </list>
     </option>
   </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+  </component>
   <component name="MavenImportPreferences">
     <option name="importingSettings">
       <MavenImportingSettings>
@@ -22,6 +60,7 @@
     </option>
   </component>
   <component name="ProjectId" id="1ZLrzeG9Dl1mAJRwo9bFcz6ERwA" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showExcludedFiles" value="true" />
@@ -29,18 +68,22 @@
   </component>
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/main/resources" />
+    <property name="project.structure.last.edited" value="Project" />
+    <property name="project.structure.proportion" value="0.0" />
+    <property name="project.structure.side.proportion" value="0.0" />
   </component>
   <component name="RecentsManager">
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/src/main/resources" />
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\dell\Documents\School\Year 2\DSA2\DSA2\Task2\src\main\resources" />
+      <recent name="$PROJECT_DIR$" />
+      <recent name="$PROJECT_DIR$/src/main/java" />
     </key>
     <key name="CopyClassDialog.RECENTS_KEY">
       <recent name="exceptions" />
     </key>
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$" />
-      <recent name="$PROJECT_DIR$/src/main/java" />
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/main/resources" />
     </key>
   </component>
   <component name="RunManager">
@@ -76,24 +119,28 @@
     </state>
     <state width="473" height="466" key="DebuggerActiveHint/0.23.1280.730/1280.23.1920.1057@0.23.1280.730" timestamp="1584640993072" />
     <state width="473" height="466" key="DebuggerActiveHint/0.23.1280.730@0.23.1280.730" timestamp="1584630554529" />
-    <state width="1218" height="175" key="GridCell.Tab.0.bottom" timestamp="1584642362271">
-      <screen x="0" y="23" width="1280" height="730" />
+    <state width="1877" height="285" key="GridCell.Tab.0.bottom" timestamp="1588371435508">
+      <screen x="-1920" y="-184" width="1920" height="1050" />
     </state>
+    <state width="1877" height="285" key="GridCell.Tab.0.bottom/0.0.1280.689/1920.-184.1920.1050/-1920.-184.1920.1050@-1920.-184.1920.1050" timestamp="1588371435508" />
     <state width="1218" height="175" key="GridCell.Tab.0.bottom/0.23.1280.730/1280.23.1920.1057@0.23.1280.730" timestamp="1584642362271" />
     <state width="1218" height="218" key="GridCell.Tab.0.bottom/0.23.1280.730@0.23.1280.730" timestamp="1584633680991" />
-    <state width="1218" height="175" key="GridCell.Tab.0.center" timestamp="1584642362269">
-      <screen x="0" y="23" width="1280" height="730" />
+    <state width="1877" height="285" key="GridCell.Tab.0.center" timestamp="1588371435508">
+      <screen x="-1920" y="-184" width="1920" height="1050" />
     </state>
+    <state width="1877" height="285" key="GridCell.Tab.0.center/0.0.1280.689/1920.-184.1920.1050/-1920.-184.1920.1050@-1920.-184.1920.1050" timestamp="1588371435508" />
     <state width="1218" height="175" key="GridCell.Tab.0.center/0.23.1280.730/1280.23.1920.1057@0.23.1280.730" timestamp="1584642362269" />
     <state width="1218" height="218" key="GridCell.Tab.0.center/0.23.1280.730@0.23.1280.730" timestamp="1584633680990" />
-    <state width="1218" height="175" key="GridCell.Tab.0.left" timestamp="1584642362269">
-      <screen x="0" y="23" width="1280" height="730" />
+    <state width="1877" height="285" key="GridCell.Tab.0.left" timestamp="1588371435508">
+      <screen x="-1920" y="-184" width="1920" height="1050" />
     </state>
+    <state width="1877" height="285" key="GridCell.Tab.0.left/0.0.1280.689/1920.-184.1920.1050/-1920.-184.1920.1050@-1920.-184.1920.1050" timestamp="1588371435508" />
     <state width="1218" height="175" key="GridCell.Tab.0.left/0.23.1280.730/1280.23.1920.1057@0.23.1280.730" timestamp="1584642362269" />
     <state width="1218" height="218" key="GridCell.Tab.0.left/0.23.1280.730@0.23.1280.730" timestamp="1584633680990" />
-    <state width="1218" height="175" key="GridCell.Tab.0.right" timestamp="1584642362270">
-      <screen x="0" y="23" width="1280" height="730" />
+    <state width="1877" height="285" key="GridCell.Tab.0.right" timestamp="1588371435508">
+      <screen x="-1920" y="-184" width="1920" height="1050" />
     </state>
+    <state width="1877" height="285" key="GridCell.Tab.0.right/0.0.1280.689/1920.-184.1920.1050/-1920.-184.1920.1050@-1920.-184.1920.1050" timestamp="1588371435508" />
     <state width="1218" height="175" key="GridCell.Tab.0.right/0.23.1280.730/1280.23.1920.1057@0.23.1280.730" timestamp="1584642362270" />
     <state width="1218" height="218" key="GridCell.Tab.0.right/0.23.1280.730@0.23.1280.730" timestamp="1584633680991" />
     <state width="1218" height="218" key="GridCell.Tab.1.bottom" timestamp="1584641259267">
@@ -116,6 +163,14 @@
     </state>
     <state width="1218" height="218" key="GridCell.Tab.1.right/0.23.1280.730/1280.23.1920.1057@0.23.1280.730" timestamp="1584641259266" />
     <state width="1218" height="218" key="GridCell.Tab.1.right/0.23.1280.730@0.23.1280.730" timestamp="1584633681619" />
+    <state x="-1480" y="-85" key="SettingsEditor" timestamp="1588368170303">
+      <screen x="-1920" y="-184" width="1920" height="1050" />
+    </state>
+    <state x="-1480" y="-85" key="SettingsEditor/0.0.1280.689/1920.-184.1920.1050/-1920.-184.1920.1050@-1920.-184.1920.1050" timestamp="1588368170303" />
+    <state x="-1304" y="151" key="run.anything.popup" timestamp="1588371298606">
+      <screen x="-1920" y="-184" width="1920" height="1050" />
+    </state>
+    <state x="-1304" y="151" key="run.anything.popup/0.0.1280.689/1920.-184.1920.1050/-1920.-184.1920.1050@-1920.-184.1920.1050" timestamp="1588371298606" />
     <state x="295" y="77" width="670" height="676" key="search.everywhere.popup" timestamp="1584640748021">
       <screen x="0" y="23" width="1280" height="730" />
     </state>
@@ -126,7 +181,7 @@
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/HuffmanCoding.java</url>
-          <line>74</line>
+          <line>58</line>
           <option name="timeStamp" value="1" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
@@ -136,7 +191,7 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/HuffmanCoding.java</url>
-          <line>79</line>
+          <line>63</line>
           <option name="timeStamp" value="3" />
         </line-breakpoint>
       </breakpoints>

@@ -1,0 +1,8 @@
+Assignment.class
+exceptions\SyntaxErrorException.class
+Symbol.class
+Parser.class
+Literal.class
+DPLL.class
+Clause.class
+ParserExecutor.class

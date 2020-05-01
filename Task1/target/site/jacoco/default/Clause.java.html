@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>Clause.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">Task1</a> &gt; <a href="index.source.html" class="el_package">default</a> &gt; <span class="el_source">Clause.java</span></div><h1>Clause.java</h1><pre class="source lang-java linenums">import java.util.ArrayList;
+
+/**
+ * Class for clause
+ */
+public class Clause {
+    //arraylist of literals
+<span class="fc" id="L8">    ArrayList&lt;Literal&gt; literals = new ArrayList&lt;Literal&gt;();</span>
+
+    /**
+     * Constructor for clause
+     * @param literals literals to set
+     */
+<span class="fc" id="L14">    public Clause(ArrayList&lt;Literal&gt; literals) {</span>
+<span class="fc" id="L15">        this.literals = literals;</span>
+<span class="fc" id="L16">    }</span>
+
+    /**
+     * Empty constructor for clause
+     */
+<span class="fc" id="L21">    public Clause() {</span>
+<span class="fc" id="L22">        this.literals = new ArrayList&lt;Literal&gt;();</span>
+<span class="fc" id="L23">    }</span>
+
+    /**
+     * Gette for literals
+     * @return list of literals
+     */
+    public ArrayList&lt;Literal&gt; getLiterals() {
+<span class="fc" id="L30">        return literals;</span>
+    }
+
+    /**
+     * Method to add literal
+     * @param literal literal to add
+     */
+    public void addLiteral(Literal literal)
+    {
+<span class="fc" id="L39">        this.literals.add(literal);</span>
+<span class="fc" id="L40">    }</span>
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.2.201808211720</span></div></body></html>

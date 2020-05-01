@@ -1,3 +1,6 @@
+import exceptions.CharacterNotSupportedException;
+
+import java.io.IOException;
 import java.util.*;
 
 public class HuffmanCoding
@@ -12,25 +15,6 @@ public class HuffmanCoding
     static Node root = null;
 
     /**
-     * Method to initialise frequencies
-     */
-    public static void initialiseFrequencies()
-    {
-        char ch;
-        for (ch = 'A'; ch <= 'Z'; ++ch)
-            frequencies.put(Character.valueOf(ch), 0);
-
-        for (ch = 'a'; ch <= 'z'; ++ch)
-            frequencies.put(Character.valueOf(ch), 0);
-
-        for (ch = '0'; ch <= '9'; ++ch)
-            frequencies.put(Character.valueOf(ch), 0);
-
-        //initialise priority queue
-        sortedChars = new PriorityQueue<Node>(frequencies.size(), new NodeComparator());
-    }
-
-    /**
      * Method to build the tree
      */
     public static void buildTree()
@@ -43,7 +27,7 @@ public class HuffmanCoding
             Node secondSmallest = sortedChars.poll();
 
             //add their frequency
-            Integer newFreq = smallest.frequency + secondSmallest.frequency;
+            Integer newFreq = smallest.getFrequency() + secondSmallest.getFrequency();
             //create a new node
             Node newNode = new Node(newFreq, '#', secondSmallest, smallest);
 
@@ -72,7 +56,7 @@ public class HuffmanCoding
     public static void generateCodes(Node topNode, String code)
     {
         //get topNode's character
-        Character nodeChar = topNode.character;
+        Character nodeChar = topNode.getCharacter();
         //base case
         if (nodeChar != '#' && topNode.left == null && topNode.right == null)
         {
@@ -84,6 +68,97 @@ public class HuffmanCoding
         //recall generateCodes recursively for the right and left nodes and add 1 and 0 to the code respectively
         generateCodes(topNode.right, code + "1");
         generateCodes(topNode.left, code + "0");
+    }
+
+    /**
+     * Method to perform huffmanCoding
+     */
+    public static void huffmanCoding(String filename) throws IOException, CharacterNotSupportedException {
+        FileOperation.populateInitFrequencies(filename);
+        buildTree();
+        generateCodes(HuffmanCoding.root, "");
+        printCodes();
+        getShortest();
+        getLongest();
+    }
+
+    /**
+     * Method to print the shortest code
+     * @return
+     */
+    public static Character getShortest()
+    {
+        //set shortest length to max int value
+        int shortestLength = Integer.MAX_VALUE;
+        //initialise holder for shortest character
+        Character shortestChar = null;
+
+        //go through every code
+        for(Map.Entry<Character, String> entry : codes.entrySet())
+        {
+            //get its length
+            int currentCodeLength = entry.getValue().length();
+            // if the code's length is smaller than the current shortest
+            if(currentCodeLength < shortestLength)
+            {
+                //set the shortest
+                shortestChar = entry.getKey();
+                shortestLength = currentCodeLength;
+            }
+        }
+
+        System.out.println(shortestChar);
+        //return the character with the shortest code
+        return shortestChar;
+    }
+
+    /**
+     * Method to print the largest code
+     * @return
+     */
+    public static Character getLongest()
+    {
+        //holder for biggest code
+        int biggestCode = -1;
+        //holder for longest length
+        int longestLength = -1;
+        //holder for character with longest code
+        Character longestChar = null;
+
+        //go through every code
+        for(Map.Entry<Character, String> entry : codes.entrySet())
+        {
+            //get its code length
+            int currentCodeLength = entry.getValue().length();
+            //get its code value
+            int currentCode = Integer.parseInt(entry.getValue());
+
+            //if the length is bigger than the current
+            if(currentCodeLength>longestLength)
+            {
+                //set new longest
+                longestChar = entry.getKey();
+                longestLength = currentCodeLength;
+                biggestCode = currentCode;
+            }
+            //if it is equal
+            else if(currentCodeLength>longestLength)
+            {
+                //if it has a smaller value than the current longest
+                if(currentCode < biggestCode)
+                {
+                    //set new longest
+                    longestChar = entry.getKey();
+                    biggestCode = currentCode;
+                }
+
+            }
+        }
+
+        System.out.println(longestChar);
+        //return the character with the longest code
+        return longestChar;
+
     }
 
 }

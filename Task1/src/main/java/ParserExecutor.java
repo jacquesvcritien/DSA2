@@ -12,13 +12,7 @@ public class ParserExecutor {
 
         Parser parser = new Parser();
 
-
         Set<Clause> clauses = parser.parseString(toParse.toString());
-
-
-//        clauses = Parser.removeTriviallySat(clauses);
-
-        System.out.println("is unsat: "+Parser.checkTriviallyUnSat(clauses));
-        Parser.printParsed(clauses);
+        DPLL.DPLL(clauses);
     }
 }

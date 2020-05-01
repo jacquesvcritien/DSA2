@@ -11,10 +11,7 @@ public class HuffManCodingExecutor {
 //            throw new NoFilePassedException("A filename should be passed");
 
 //        HuffmanCoding.initialiseFrequencies();
-        FileOperation.populateInitFrequencies("text.txt");
-        HuffmanCoding.buildTree();
-        HuffmanCoding.generateCodes(HuffmanCoding.root, "");
-        HuffmanCoding.printCodes();
+        HuffmanCoding.huffmanCoding("text.txt");
 
     }
 }

@@ -24,9 +24,7 @@
                 <version>0.8.2</version>
                 <configuration>
                     <excludes>
-                        <exclude>**/Node.*</exclude>
-                        <exclude>**/*run*</exclude>
-                        <exclude>**/Launcher*.*</exclude>
+                        <exclude>**/ParserExecutor.*</exclude>
                     </excludes>
                 </configuration>
                 <executions>

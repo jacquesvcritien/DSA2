@@ -7,7 +7,7 @@ import java.util.PriorityQueue;
 public class FileOperation {
 
     /**
-     * Method to populate frequencies if all characters have to listed for each file and they were already intiialised
+     * Method to populate frequencies if all characters have to listed for each file and they were already initialised
      * @param filename filename
      * @throws IOException if a file is not found
      * @throws CharacterNotSupportedException if a wrong character is included in the file

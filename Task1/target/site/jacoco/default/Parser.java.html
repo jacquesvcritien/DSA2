@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>Parser.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">Task1</a> &gt; <a href="index.source.html" class="el_package">default</a> &gt; <span class="el_source">Parser.java</span></div><h1>Parser.java</h1><pre class="source lang-java linenums">
+import exceptions.SyntaxErrorException;
+
+import java.lang.reflect.Array;
+import java.util.*;
+
+<span class="fc" id="L7">public class Parser {</span>
+
+    /**
+     * Method to parse a string
+     * @return An ArrayList of Clauses if it is correct
+     * @throws SyntaxErrorException if the string is not of the correct format
+     */
+    public static Set&lt;Clause&gt; parseString(String toParse) throws SyntaxErrorException {
+<span class="fc" id="L15">        Set&lt;Clause&gt; clauses = new HashSet&lt;Clause&gt;();</span>
+
+        //if string is empty
+<span class="fc bfc" id="L18" title="All 2 branches covered.">        if(toParse.length() ==0)</span>
+<span class="fc" id="L19">            throw new SyntaxErrorException(&quot;String cannot be empty&quot;);</span>
+
+        //remove spaces
+<span class="fc" id="L22">        toParse = toParse.replaceAll(&quot; &quot;,&quot;&quot;);</span>
+
+        //check for first and last parentheses
+<span class="fc bfc" id="L25" title="All 4 branches covered.">        if(!toParse.startsWith(&quot;(&quot;) || !toParse.endsWith(&quot;)&quot;))</span>
+<span class="fc" id="L26">            throw new SyntaxErrorException(&quot;Input must start with with a ( and ends with a )&quot;);</span>
+
+
+        //remove first and last parentheses
+<span class="fc" id="L30">        toParse = toParse.substring(1,toParse.length()-1);</span>
+        //get clauses by dividing on every &quot;)(&quot;
+<span class="fc" id="L32">        StringTokenizer clauseTokenizer = new StringTokenizer(toParse, &quot;)(&quot;);</span>
+        //initialise literal tokenizer
+        StringTokenizer literalTokenizer;
+
+        //for every clause token
+<span class="fc bfc" id="L37" title="All 2 branches covered.">        while(clauseTokenizer.hasMoreTokens())</span>
+        {
+            //get that clause as string
+<span class="fc" id="L40">            String clauseString = clauseTokenizer.nextToken();</span>
+            //get literals by dividing on every &quot;,&quot;
+<span class="fc" id="L42">            literalTokenizer = new StringTokenizer(clauseString, &quot;,&quot;);</span>
+<span class="fc" id="L43">            Clause clause = new Clause();</span>
+            //for every literal
+<span class="fc bfc" id="L45" title="All 2 branches covered.">            while(literalTokenizer.hasMoreTokens())</span>
+            {
+                //get next token
+<span class="fc" id="L48">                String stringLiteral = literalTokenizer.nextToken();</span>
+                Literal literal;
+
+                //check if negated, add literal with second letter and true, if not, add literal with first letter and false
+<span class="fc" id="L52">                literal = new Literal(stringLiteral);</span>
+
+                //if assignments does not contain the symbol, insert it
+<span class="fc bfc" id="L55" title="All 2 branches covered.">                if(!DPLL.assignments.containsKey(literal.getSymbol()))</span>
+<span class="fc" id="L56">                    DPLL.assignments.put(literal.getSymbol(), Assignment.DONTCARE);</span>
+
+                //add literal to clause
+<span class="fc" id="L59">                clause.addLiteral(literal);</span>
+<span class="fc" id="L60">            }</span>
+
+            //add clause to clauses
+<span class="fc" id="L63">            clauses.add(clause);</span>
+<span class="fc" id="L64">        }</span>
+
+<span class="fc" id="L66">        return clauses;</span>
+    }
+
+
+    /**
+     * Method to print the clauses parsed
+     * @param clauses a list of clauses
+     */
+    public static void printParsed(Set&lt;Clause&gt; clauses)
+    {
+        //create iterator
+<span class="fc" id="L77">        Iterator&lt;Clause&gt; clauseItr = clauses.iterator();</span>
+
+<span class="fc" id="L79">        int counter = 1;</span>
+        //loop through each clause
+<span class="fc bfc" id="L81" title="All 2 branches covered.">        while(clauseItr.hasNext())</span>
+        {
+            //print clause number
+<span class="fc" id="L84">            System.out.println(&quot;Clause &quot;+(counter)+&quot;:&quot;);</span>
+            //get clause
+<span class="fc" id="L86">            Clause clause = clauseItr.next();</span>
+            //for each literal
+<span class="fc bfc" id="L88" title="All 2 branches covered.">            for(int j=0; j&lt;clause.getLiterals().size(); j++)</span>
+            {
+<span class="fc" id="L90">                Literal literal = clause.getLiterals().get(j);</span>
+<span class="fc bfc" id="L91" title="All 2 branches covered.">                String negated = (literal.isNegated()) ? &quot;¬&quot; : &quot;&quot;;</span>
+<span class="fc" id="L92">                System.out.println(&quot;Literal &quot;+(counter)+&quot;.&quot;+(j+1)+&quot;: &quot;+negated+clause.getLiterals().get(j).getSymbol().toString());</span>
+            }
+
+<span class="fc" id="L95">            counter++;</span>
+<span class="fc" id="L96">            System.out.println(&quot;&quot;);</span>
+<span class="fc" id="L97">        }</span>
+<span class="fc" id="L98">    }</span>
+
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.2.201808211720</span></div></body></html>

@@ -1,19 +1,31 @@
 import java.util.ArrayList;
 
+/**
+ * Class for clause
+ */
 public class Clause {
+    //arraylist of literals
     ArrayList<Literal> literals = new ArrayList<Literal>();
 
-    //constructor for clause
+    /**
+     * Constructor for clause
+     * @param literals literals to set
+     */
     public Clause(ArrayList<Literal> literals) {
         this.literals = literals;
     }
 
-    //constructor for clause
+    /**
+     * Empty constructor for clause
+     */
     public Clause() {
         this.literals = new ArrayList<Literal>();
     }
 
-    //getter for literals
+    /**
+     * Gette for literals
+     * @return list of literals
+     */
     public ArrayList<Literal> getLiterals() {
         return literals;
     }
