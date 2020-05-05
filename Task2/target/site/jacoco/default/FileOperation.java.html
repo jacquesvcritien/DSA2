@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>FileOperation.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">Task2</a> &gt; <a href="index.source.html" class="el_package">default</a> &gt; <span class="el_source">FileOperation.java</span></div><h1>FileOperation.java</h1><pre class="source lang-java linenums">import exceptions.CharacterNotSupportedException;
+
+import java.io.*;
+import java.util.Map;
+import java.util.PriorityQueue;
+
+<span class="fc" id="L7">public class FileOperation {</span>
+
+//    /**
+//     * Method to populate frequencies if all characters have to listed for each file and they were already initialised
+//     * @param filename filename
+//     * @throws IOException if a file is not found
+//     * @throws CharacterNotSupportedException if a wrong character is included in the file
+//     */
+//    public static void populateFrequencies(String filename) throws IOException, CharacterNotSupportedException {
+//        //find file
+//        File file = new File(filename);
+//        FileReader fileReader = new FileReader(file);
+//        BufferedReader bufferedReader = new BufferedReader(fileReader);
+//
+//        //to keep the currentFrequency
+//        int currentVal;
+//
+//        //get ascii integer
+//        int asciiCode = bufferedReader.read();
+//        //while is found in ascii table
+//        while(asciiCode != -1)
+//        {
+//            //get character with that ascii code
+//            char character = (char) asciiCode;
+//            //if not in accepted character range, throw error
+//            if((character &lt; 'A' || character &gt; 'Z') &amp;&amp; (character &lt; 'a' || character &gt; 'z') &amp;&amp; (character &lt; '0' || character &gt; '9'))
+//                throw new CharacterNotSupportedException(&quot;File should only includes A-Z, a-z or 0-9 characters&quot;);
+//
+//            //get current frequency
+//            currentVal = HuffmanCoding.getFrequencies().get(character);
+//            //add 1 to it
+//            HuffmanCoding.getFrequencies().put(character, currentVal+1);
+//            //read next char
+//            asciiCode = bufferedReader.read();
+//        }
+//
+//        //to hold node to add
+//        Node newNode;
+//
+//        //loop through frequencies, create a node for each character and add it to the queue
+//        for (Map.Entry&lt;Character, Integer&gt; entry : HuffmanCoding.getFrequencies().entrySet()) {
+//            newNode = new Node(entry.getValue(), entry.getKey());
+//            HuffmanCoding.getSortedChars().add(newNode);
+//        }
+//    }
+
+    /**
+     * Method to populate frequencies
+     * @param filename filename
+     * @throws IOException if a file is not found
+     * @throws CharacterNotSupportedException if a wrong character is included in the file
+     */
+    public static void populateInitFrequencies(String filename) throws IOException, CharacterNotSupportedException {
+        //find file
+<span class="fc" id="L61">        File file = new File(filename);</span>
+<span class="fc" id="L62">        FileReader fileReader = new FileReader(file);</span>
+<span class="fc" id="L63">        BufferedReader bufferedReader = new BufferedReader(fileReader);</span>
+
+        //to keep the current frequency
+        int currentVal;
+
+        //get ascii integer
+<span class="fc" id="L69">        int asciiCode = bufferedReader.read();</span>
+        //while is found in ascii table
+<span class="fc bfc" id="L71" title="All 2 branches covered.">        while(asciiCode != -1)</span>
+        {
+            //get character with that ascii code
+<span class="fc" id="L74">            char character = (char) asciiCode;</span>
+            //if not in accepted character range, throw error
+<span class="fc bfc" id="L76" title="All 12 branches covered.">            if((character &lt; 'A' || character &gt; 'Z') &amp;&amp; (character &lt; 'a' || character &gt; 'z') &amp;&amp; (character &lt; '0' || character &gt; '9'))</span>
+<span class="fc" id="L77">                throw new CharacterNotSupportedException(&quot;File should only includes A-Z, a-z or 0-9 characters&quot;);</span>
+
+            //if frequency exist in hashmap, add to it
+<span class="fc bfc" id="L80" title="All 2 branches covered.">            if(HuffmanCoding.getFrequencies().containsKey(character)) {</span>
+<span class="fc" id="L81">                currentVal = HuffmanCoding.getFrequencies().get(character);</span>
+<span class="fc" id="L82">                HuffmanCoding.getFrequencies().put(character, currentVal + 1);</span>
+            }
+            //if it does not exist, initialise frequency for letter
+            else
+            {
+<span class="fc" id="L87">                HuffmanCoding.getFrequencies().put(character, 1);</span>
+            }
+
+            //read next character
+<span class="fc" id="L91">            asciiCode = bufferedReader.read();</span>
+<span class="fc" id="L92">        }</span>
+
+        //to hold node to add
+        Node newNode;
+
+        //initialise priority queue for nodes
+<span class="fc" id="L98">        HuffmanCoding.setSortedChars(new PriorityQueue&lt;Node&gt;(HuffmanCoding.getFrequencies().size(), new NodeComparator()));</span>
+
+        //loop through frequencies, create a node for each character and add it to the queue
+<span class="fc bfc" id="L101" title="All 2 branches covered.">        for (Map.Entry&lt;Character, Integer&gt; entry : HuffmanCoding.getFrequencies().entrySet()) {</span>
+<span class="fc" id="L102">            newNode = new Node(entry.getValue(), entry.getKey());</span>
+<span class="fc" id="L103">            HuffmanCoding.getSortedChars().add(newNode);</span>
+<span class="fc" id="L104">        }</span>
+
+<span class="fc" id="L106">    }</span>
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.2.201808211720</span></div></body></html>

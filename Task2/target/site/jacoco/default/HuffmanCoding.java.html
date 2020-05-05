@@ -1,0 +1,204 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>HuffmanCoding.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">Task2</a> &gt; <a href="index.source.html" class="el_package">default</a> &gt; <span class="el_source">HuffmanCoding.java</span></div><h1>HuffmanCoding.java</h1><pre class="source lang-java linenums">import exceptions.CharacterNotSupportedException;
+
+import java.io.IOException;
+import java.util.*;
+
+<span class="fc" id="L6">public class HuffmanCoding</span>
+{
+    //hashmap to hold frequencies
+<span class="fc" id="L9">    private static HashMap&lt;Character, Integer&gt; frequencies = new HashMap&lt;Character, Integer&gt;();</span>
+    //priority queue to hold nodes to build trees
+    private static PriorityQueue&lt;Node&gt; sortedChars;
+    //treemap to hold codes sorted by character
+<span class="fc" id="L13">    private static TreeMap&lt;Character, String&gt; codes = new TreeMap&lt;Character, String&gt;();</span>
+    //root
+<span class="fc" id="L15">    private static Node root = null;</span>
+
+    /**
+     * Method to build the tree
+     */
+    public static void buildTree()
+    {
+        //loop until only 1 node is left in the priority queue
+<span class="fc bfc" id="L23" title="All 2 branches covered.">        while(sortedChars.size() &gt;= 2)</span>
+        {
+            //get 2 smallest nodes
+<span class="fc" id="L26">            Node smallest = sortedChars.poll();</span>
+<span class="fc" id="L27">            Node secondSmallest = sortedChars.poll();</span>
+
+            //add their frequency
+<span class="fc" id="L30">            Integer newFreq = smallest.getFrequency() + secondSmallest.getFrequency();</span>
+            //create a new node
+<span class="fc" id="L32">            Node newNode = new Node(newFreq, '#', secondSmallest, smallest);</span>
+
+            //add node to queue
+<span class="fc" id="L35">            sortedChars.add(newNode);</span>
+            //set the new node as the root
+<span class="fc" id="L37">            root = newNode;</span>
+<span class="fc" id="L38">        }</span>
+<span class="fc" id="L39">    }</span>
+
+    /**
+     * Method to loop through codes and print them
+     */
+    public static void printCodes()
+    {
+<span class="fc bfc" id="L46" title="All 2 branches covered.">        for (Map.Entry&lt;Character, String&gt; entry : codes.entrySet()) {</span>
+<span class="fc" id="L47">            System.out.println(entry.getKey() + &quot; =&gt; &quot; + entry.getValue());</span>
+<span class="fc" id="L48">        }</span>
+<span class="fc" id="L49">    }</span>
+
+    /**
+     * Method to generate codes
+     * @param topNode node to execute
+     * @param code current code up till now
+     */
+    public static void generateCodes(Node topNode, String code)
+    {
+        //get topNode's character
+<span class="fc" id="L59">        Character nodeChar = topNode.getCharacter();</span>
+        //base case
+<span class="fc bfc" id="L61" title="All 2 branches covered.">        if (topNode.left == null)</span>
+        {
+            //add to code and return
+<span class="fc" id="L64">            codes.put(nodeChar, code);</span>
+<span class="fc" id="L65">            return;</span>
+        }
+
+        //recall generateCodes recursively for the right and left nodes and add 1 and 0 to the code respectively
+<span class="fc" id="L69">        generateCodes(topNode.right, code + &quot;1&quot;);</span>
+<span class="fc" id="L70">        generateCodes(topNode.left, code + &quot;0&quot;);</span>
+<span class="fc" id="L71">    }</span>
+
+
+    /**
+     * Method to print the shortest code
+     * @return
+     */
+    public static Character getShortest()
+    {
+        //set shortest length to max int value
+<span class="fc" id="L81">        int shortestLength = Integer.MAX_VALUE;</span>
+        //initialise holder for shortest character
+<span class="fc" id="L83">        Character shortestChar = null;</span>
+
+        //go through every code
+<span class="fc bfc" id="L86" title="All 2 branches covered.">        for(Map.Entry&lt;Character, String&gt; entry : codes.entrySet())</span>
+        {
+            //get its length
+<span class="fc" id="L89">            int currentCodeLength = entry.getValue().length();</span>
+            // if the code's length is smaller than the current shortest
+<span class="fc bfc" id="L91" title="All 2 branches covered.">            if(currentCodeLength &lt; shortestLength)</span>
+            {
+                //set the shortest
+<span class="fc" id="L94">                shortestChar = entry.getKey();</span>
+<span class="fc" id="L95">                shortestLength = currentCodeLength;</span>
+            }
+<span class="fc" id="L97">        }</span>
+
+<span class="fc" id="L99">        System.out.println(&quot;SHORTEST: &quot;+shortestChar);</span>
+        //return the character with the shortest code
+<span class="fc" id="L101">        return shortestChar;</span>
+    }
+
+//    /**
+//     * Method to print the largest code
+//     * @return
+//     */
+//    public static Character getLongest()
+//    {
+//        //holder for biggest code
+//        int biggestCode = -1;
+//        //holder for longest length
+//        int longestLength = -1;
+//        //holder for character with longest code
+//        Character longestChar = null;
+//
+//        //go through every code
+//        for(Map.Entry&lt;Character, String&gt; entry : codes.entrySet())
+//        {
+//            //get its code length
+//            int currentCodeLength = entry.getValue().length();
+//            //get its code value
+//            int currentCode = Integer.parseInt(entry.getValue());
+//
+//            //if the length is bigger than the current
+//            if(currentCodeLength&gt;longestLength)
+//            {
+//                //set new longest
+//                longestChar = entry.getKey();
+//                longestLength = currentCodeLength;
+//                biggestCode = currentCode;
+//            }
+//            //if it is equal
+//            else if(currentCodeLength&gt;longestLength)
+//            {
+//                //if it has a smaller value than the current longest
+//                if(currentCode &lt; biggestCode)
+//                {
+//                    //set new longest
+//                    longestChar = entry.getKey();
+//                    biggestCode = currentCode;
+//                }
+//
+//            }
+//        }
+//
+//        System.out.println(longestChar);
+//        //return the character with the longest code
+//        return longestChar;
+//
+//    }
+
+    /**
+     * Method to reset for testing
+     */
+    public static void reset()
+    {
+<span class="fc" id="L158">        frequencies = new HashMap&lt;Character, Integer&gt;();</span>
+<span class="fc" id="L159">        sortedChars = null;</span>
+<span class="fc" id="L160">        codes = new TreeMap&lt;Character, String&gt;();</span>
+<span class="fc" id="L161">        root = null;</span>
+<span class="fc" id="L162">    }</span>
+
+    /**
+     * Getter for codes
+     * @return treemap of codes
+     */
+    public static TreeMap&lt;Character, String&gt; getCodes() {
+<span class="fc" id="L169">        return codes;</span>
+    }
+
+    /**
+     * Getter for frequencies
+     * @return hashmap containing frequencies
+     */
+    public static HashMap&lt;Character, Integer&gt; getFrequencies() {
+<span class="fc" id="L177">        return frequencies;</span>
+    }
+
+    /**
+     * Getter for sorted Chars
+     * @return priority queue for characters nodes
+     */
+    public static PriorityQueue&lt;Node&gt; getSortedChars() {
+<span class="fc" id="L185">        return sortedChars;</span>
+    }
+
+    /**
+     * Getter for root node
+     * @return root node
+     */
+    public static Node getRoot() {
+<span class="fc" id="L193">        return root;</span>
+    }
+
+    /**
+     * Setter for sortedChars
+     * @param sortedChars sortedChars to set
+     */
+    public static void setSortedChars(PriorityQueue&lt;Node&gt; sortedChars) {
+<span class="fc" id="L201">        HuffmanCoding.sortedChars = sortedChars;</span>
+<span class="fc" id="L202">    }</span>
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.2.201808211720</span></div></body></html>

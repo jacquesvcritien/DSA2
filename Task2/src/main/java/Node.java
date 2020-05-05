@@ -4,6 +4,12 @@ import java.util.Comparator;
  * Comparator to compare nodes by their frequency
  */
 class NodeComparator implements Comparator<Node> {
+    /**
+     * Compare method to compare the two nodes
+     * @param x first node
+     * @param y second node
+     * @return difference between them
+     */
     public int compare(Node x, Node y)
     {
         return x.getFrequency() - y.getFrequency();

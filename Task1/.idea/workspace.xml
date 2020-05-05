@@ -2,40 +2,36 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="e090e7bc-bf6b-4bc3-9022-9f76427e6768" name="Default Changelist" comment="Added 1 and pure literals rules">
-      <change afterPath="$PROJECT_DIR$/../Documentation/Documentation.pdf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Documentation/Documentation.synctex.gz" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Documentation/Documentation.tex" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Documentation/references.bib" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Documentation/uom.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/DPLL.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/DPLLTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/LiteralTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Task2/.idea/vcs.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Task2/src/main/java/FileOperation.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Task2/src/main/java/HuffmanCoding.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Task2/src/main/java/HuffmanCodingExecutor.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Task2/src/main/java/Node.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Task2/src/main/java/NodeComparator.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Task2/src/main/java/exceptions/CharacterNotSupportedException.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Task2/src/main/java/exceptions/NoFilePassedException.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Task2/target/site/jacoco/exceptions/NoFilePassedException.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Task2/target/site/jacoco/exceptions/NoFilePassedException.java.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Task2/tests/test3.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Documentation/Documentation.pdf" beforeDir="false" afterPath="$PROJECT_DIR$/../Documentation/Documentation.pdf" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Documentation/Documentation.synctex.gz" beforeDir="false" afterPath="$PROJECT_DIR$/../Documentation/Documentation.synctex.gz" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Documentation/Documentation.tex" beforeDir="false" afterPath="$PROJECT_DIR$/../Documentation/Documentation.tex" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Documentation/references.bib" beforeDir="false" afterPath="$PROJECT_DIR$/../Documentation/references.bib" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Assignment.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Assignment.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Clause.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Clause.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Literal.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Literal.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Parser.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Parser.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/ParserExecutor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ParserExecutor.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Symbol.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Symbol.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/exceptions/SyntaxErrorException.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/exceptions/SyntaxErrorException.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/ParserTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/ParserTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Clause.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Clause.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Literal.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Literal.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Parser.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Parser.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/ParserExecutor.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/ParserExecutor.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Symbol.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Symbol.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/exceptions/SyntaxErrorException.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/exceptions/SyntaxErrorException.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/test-classes/ParserTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/ParserTest.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Task2/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../Task2/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../Task2/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../Task2/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Task2/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../Task2/pom.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../Task2/src/main/java/FileOperation.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Task2/src/main/java/FileOperation.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Task2/src/main/java/HuffManCodingExecutor.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Task2/src/main/java/HuffManCodingExecutor.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Task2/src/main/java/HuffManCodingExecutor.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Task2/src/main/java/HuffmanCodingExecutor.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../Task2/src/main/java/HuffmanCoding.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Task2/src/main/java/HuffmanCoding.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../Task2/src/main/java/Node.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Task2/src/main/java/Node.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Task2/src/main/java/NodeComparator.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Task2/src/main/java/exceptions/NoFilePassedException.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Task2/src/main/java/exceptions/NoFilePassedException.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Task2/target/classes/FileOperation.class" beforeDir="false" afterPath="$PROJECT_DIR$/../Task2/target/classes/FileOperation.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Task2/target/classes/HuffManCodingExecutor.class" beforeDir="false" afterPath="$PROJECT_DIR$/../Task2/target/classes/HuffManCodingExecutor.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Task2/target/classes/HuffmanCoding.class" beforeDir="false" afterPath="$PROJECT_DIR$/../Task2/target/classes/HuffmanCoding.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Task2/target/classes/Node.class" beforeDir="false" afterPath="$PROJECT_DIR$/../Task2/target/classes/Node.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Task2/target/classes/NodeComparator.class" beforeDir="false" afterPath="$PROJECT_DIR$/../Task2/target/classes/NodeComparator.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Task2/target/classes/exceptions/NoFilePassedException.class" beforeDir="false" afterPath="$PROJECT_DIR$/../Task2/target/classes/exceptions/NoFilePassedException.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Task2/text.txt" beforeDir="false" afterPath="$PROJECT_DIR$/../Task2/tests/test1.txt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -237,45 +233,45 @@
       <screen x="1920" y="-184" width="1920" height="1050" />
     </state>
     <state x="2660" y="96" key="FileChooserDialogImpl/0.0.1280.689/1920.-184.1920.1050/-1920.-184.1920.1050@1920.-184.1920.1050" timestamp="1588334293813" />
-    <state width="1877" height="244" key="GridCell.Tab.0.bottom" timestamp="1588372616516">
+    <state width="1877" height="244" key="GridCell.Tab.0.bottom" timestamp="1588373143458">
       <screen x="1920" y="-184" width="1920" height="1050" />
     </state>
     <state width="1877" height="352" key="GridCell.Tab.0.bottom/0.0.1280.689/1920.-184.1920.1050/-1920.-184.1920.1050@-1920.-184.1920.1050" timestamp="1588244143857" />
     <state width="1237" height="166" key="GridCell.Tab.0.bottom/0.0.1280.689/1920.-184.1920.1050/-1920.-184.1920.1050@0.0.1280.689" timestamp="1588269834984" />
-    <state width="1877" height="244" key="GridCell.Tab.0.bottom/0.0.1280.689/1920.-184.1920.1050/-1920.-184.1920.1050@1920.-184.1920.1050" timestamp="1588372616516" />
+    <state width="1877" height="244" key="GridCell.Tab.0.bottom/0.0.1280.689/1920.-184.1920.1050/-1920.-184.1920.1050@1920.-184.1920.1050" timestamp="1588373143458" />
     <state width="1237" height="244" key="GridCell.Tab.0.bottom/0.0.1280.689@0.0.1280.689" timestamp="1588343246782" />
     <state width="1218" height="169" key="GridCell.Tab.0.bottom/0.23.1280.727/1280.-257.1920.1057@0.23.1280.727" timestamp="1584388579249" />
     <state width="1218" height="171" key="GridCell.Tab.0.bottom/0.23.1280.730/1280.23.1920.1057@0.23.1280.730" timestamp="1584624685479" />
     <state width="1218" height="171" key="GridCell.Tab.0.bottom/0.23.1280.732/1280.23.1920.1057@0.23.1280.732" timestamp="1584643360259" />
     <state width="1218" height="196" key="GridCell.Tab.0.bottom/0.23.1280.777/1280.23.1920.989@0.23.1280.777" timestamp="1584483483512" />
-    <state width="1877" height="244" key="GridCell.Tab.0.center" timestamp="1588372616516">
+    <state width="1877" height="244" key="GridCell.Tab.0.center" timestamp="1588373143458">
       <screen x="1920" y="-184" width="1920" height="1050" />
     </state>
     <state width="1877" height="352" key="GridCell.Tab.0.center/0.0.1280.689/1920.-184.1920.1050/-1920.-184.1920.1050@-1920.-184.1920.1050" timestamp="1588244143857" />
     <state width="1237" height="166" key="GridCell.Tab.0.center/0.0.1280.689/1920.-184.1920.1050/-1920.-184.1920.1050@0.0.1280.689" timestamp="1588269834984" />
-    <state width="1877" height="244" key="GridCell.Tab.0.center/0.0.1280.689/1920.-184.1920.1050/-1920.-184.1920.1050@1920.-184.1920.1050" timestamp="1588372616516" />
+    <state width="1877" height="244" key="GridCell.Tab.0.center/0.0.1280.689/1920.-184.1920.1050/-1920.-184.1920.1050@1920.-184.1920.1050" timestamp="1588373143458" />
     <state width="1237" height="244" key="GridCell.Tab.0.center/0.0.1280.689@0.0.1280.689" timestamp="1588343246782" />
     <state width="1218" height="169" key="GridCell.Tab.0.center/0.23.1280.727/1280.-257.1920.1057@0.23.1280.727" timestamp="1584388579248" />
     <state width="1218" height="171" key="GridCell.Tab.0.center/0.23.1280.730/1280.23.1920.1057@0.23.1280.730" timestamp="1584624685477" />
     <state width="1218" height="171" key="GridCell.Tab.0.center/0.23.1280.732/1280.23.1920.1057@0.23.1280.732" timestamp="1584643360257" />
     <state width="1218" height="196" key="GridCell.Tab.0.center/0.23.1280.777/1280.23.1920.989@0.23.1280.777" timestamp="1584483483510" />
-    <state width="1877" height="244" key="GridCell.Tab.0.left" timestamp="1588372616516">
+    <state width="1877" height="244" key="GridCell.Tab.0.left" timestamp="1588373143458">
       <screen x="1920" y="-184" width="1920" height="1050" />
     </state>
     <state width="1877" height="352" key="GridCell.Tab.0.left/0.0.1280.689/1920.-184.1920.1050/-1920.-184.1920.1050@-1920.-184.1920.1050" timestamp="1588244143856" />
     <state width="1237" height="166" key="GridCell.Tab.0.left/0.0.1280.689/1920.-184.1920.1050/-1920.-184.1920.1050@0.0.1280.689" timestamp="1588269834984" />
-    <state width="1877" height="244" key="GridCell.Tab.0.left/0.0.1280.689/1920.-184.1920.1050/-1920.-184.1920.1050@1920.-184.1920.1050" timestamp="1588372616516" />
+    <state width="1877" height="244" key="GridCell.Tab.0.left/0.0.1280.689/1920.-184.1920.1050/-1920.-184.1920.1050@1920.-184.1920.1050" timestamp="1588373143458" />
     <state width="1237" height="244" key="GridCell.Tab.0.left/0.0.1280.689@0.0.1280.689" timestamp="1588343246782" />
     <state width="1218" height="169" key="GridCell.Tab.0.left/0.23.1280.727/1280.-257.1920.1057@0.23.1280.727" timestamp="1584388579247" />
     <state width="1218" height="171" key="GridCell.Tab.0.left/0.23.1280.730/1280.23.1920.1057@0.23.1280.730" timestamp="1584624685471" />
     <state width="1218" height="171" key="GridCell.Tab.0.left/0.23.1280.732/1280.23.1920.1057@0.23.1280.732" timestamp="1584643360256" />
     <state width="1218" height="196" key="GridCell.Tab.0.left/0.23.1280.777/1280.23.1920.989@0.23.1280.777" timestamp="1584483483510" />
-    <state width="1877" height="244" key="GridCell.Tab.0.right" timestamp="1588372616516">
+    <state width="1877" height="244" key="GridCell.Tab.0.right" timestamp="1588373143458">
       <screen x="1920" y="-184" width="1920" height="1050" />
     </state>
     <state width="1877" height="352" key="GridCell.Tab.0.right/0.0.1280.689/1920.-184.1920.1050/-1920.-184.1920.1050@-1920.-184.1920.1050" timestamp="1588244143857" />
     <state width="1237" height="166" key="GridCell.Tab.0.right/0.0.1280.689/1920.-184.1920.1050/-1920.-184.1920.1050@0.0.1280.689" timestamp="1588269834984" />
-    <state width="1877" height="244" key="GridCell.Tab.0.right/0.0.1280.689/1920.-184.1920.1050/-1920.-184.1920.1050@1920.-184.1920.1050" timestamp="1588372616516" />
+    <state width="1877" height="244" key="GridCell.Tab.0.right/0.0.1280.689/1920.-184.1920.1050/-1920.-184.1920.1050@1920.-184.1920.1050" timestamp="1588373143458" />
     <state width="1237" height="244" key="GridCell.Tab.0.right/0.0.1280.689@0.0.1280.689" timestamp="1588343246782" />
     <state width="1218" height="169" key="GridCell.Tab.0.right/0.23.1280.727/1280.-257.1920.1057@0.23.1280.727" timestamp="1584388579249" />
     <state width="1218" height="171" key="GridCell.Tab.0.right/0.23.1280.730/1280.23.1920.1057@0.23.1280.730" timestamp="1584624685479" />

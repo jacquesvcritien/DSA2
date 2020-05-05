@@ -2,6 +2,7 @@
 			\usepackage{graphicx}
 			\usepackage{listings}
 			\usepackage{titlepic}
+			\usepackage[margin=1.4in]{geometry}
 			\usepackage{float}
 			\usepackage{hyperref}
 			\newcommand\tab[1][1cm]{\hspace*{#1}}
@@ -43,7 +44,7 @@
 				
 \noindent Finally, we are to dedicate a section to describe the practical applications of SAT. 
 
-		\subsection{Solutions}
+		\subsection{Solution}
 		
 		\subsubsection{SyntaxErrorException.java}
 		
@@ -208,6 +209,16 @@
 		\end{enumerate}					
 		
 		
+\subsection{How to run}
+
+In order to run the implementation for task 1, an additional class named \textbf{ParserExecutor} was created and in its main method, the command line arguments are obtained. These are joined together using a string builder and then they are parsed into clauses by calling the function \textbf{parseString(String)}. Finally, the function \textbf{DPLL()} is called with the clauses generated form the arguments to start checking the expression's satisfiability. 
+
+\begin{enumerate}
+\item Go to the directory \quotes{src/main/java}
+\item Run \quotes{javac ParserExecutor.java}
+\item Run \quotes{java ParserExecutor \textless anyExpression\textgreater}
+\end{enumerate}
+
 		\subsection{Testing}
 		
 	My implementation was tested by having unit tests for the methods in the literal and parser class. Moreover some integration tests were done to make sure that the DPLL method returns the expected the results.\\
@@ -340,13 +351,167 @@ The most well known practical applications include:
 
 \end{enumerate}
 
-\subsection{How to run}
+\pagebreak
+
+
+		\section{Task2: Data	Compression}
+		
+		For part 2 of this assignment, it was required to write a command line program which should accept an ASCII text file as input with the only characters allowed being \textbf{A-Z}, \textbf{a-z} and \textbf{0-9}. Moreover, if the file contains any other characters, an error was required to be shown. More importantly, Huffman coding was required to be implemented to produce the optimal coding tree for the file contents. Finally, the coding table needed to be displayed and sorted by ASCII value. 
+		
+		\subsection{Solution}
+		
+		\subsubsection{CharacterNotSupportedException.java}
+		
+		This is an exception class which is thrown when an input file contains an unsupported character.
+		
+		\subsubsection{NoFilePassedException.java}
+		
+		This is an exception class which is thrown when no file name is passed to the command line arguments of the executor.
+		
+		
+		\subsubsection{FileOperation.java}
+		
+		This is a class which contains the method to read a file and initialise the member variables of the DPLL class in order to begin doing the huffman coding of the file.
+		
+		This method is called \textbf{populateInitFrequencies()} and it accepts the path to the file in a string as a parameter. In order to populate and intiliase the character frequencies the following is done.
+		
+		\begin{enumerate}
+			\item A buffered reader is created for the file which is located at  the specified path.
+			\item Then for every character:
+				\begin{enumerate}
+					\item The next character is obtained
+					\item It is checked if this character falls in the region of ASCII codes accepted and if not a \textbf{CharacterNotSupportedException} is thrown.
+					\item It is checked if the character is already defined in the hashmap holding frequencies of characters and then if it is already defined, the frequency is incremented. Otherwise, a new map entry for the character is created.
+				\end{enumerate}
+\item A new priority queue is declared using the NodeComparator which I will be explaining further down below. A priority queue is a normal queue with the added feature of each queue object has an attached priority, in this case, the least frequent sits at the top. 
+\item Each item in the frequency table is added to the priority queue.
+		\end{enumerate}
+		
+				\subsubsection{Node.java}
+		
+		This file contains the following two classes:
+		\begin{enumerate}
+			\item \textbf{NodeComparator}: This is a Comparator class containing the compare method which checks the difference between the two nodes so that it can be used to give priority to each object for the priority queue.
+			\item \textbf{Node}: This is a class used to represent a Huffman coding node. 
+		\end{enumerate}
+		
+		The Node class contains the following global variables:
+		\begin{itemize}
+			\item \textbf{frequency}: This is a variable to hold the frequency, hence, the number of times it appears in the file.
+			\item \textbf{character}: This is a variable to hold the character
+			\item \textbf{left}: This is a Node object which represent the child left node. This contains a smaller value than the right node.
+			\item \textbf{right}: This is a Node object which represent the child right node
+		\end{itemize}
+		
+		Moreover, it contains the following methods: 
+		
+		\begin{enumerate}
+		\item \textbf{Node(int, char)}: The is a constructor which sets the frequency and character.
+		\item \textbf{Node(int, char, Node, Node)}: The is a constructor which sets the frequency, character and left and right nodes.
+		\item \textbf{getCharacter()}: This is a getter for the character.
+		\item \textbf{getFrequency()}: This is a getter for the frequency.
+		\end{enumerate}
+		
+		
+		\subsubsection{HuffmanCoding.java}
+		
+		This is a class which contains the methods to perform huffman coding. To start with, it contaisn the following member variables:
+		\begin{itemize}
+			\item \textbf{frequencies}: This is a hashmap with a key of type Character and a value of type int. It is used to hold how many times a character appears in the input file.
+			\item \textbf{sortedChars}: As explained above, this is a priority queue which sorts the nodes according to the frequency. The least frequent is at the top.
+			\item \textbf{codes}: This is a treemap with a key of type Character and a value of type string. This is used to hold the codes sorted by the ASCII code of the character.
+			\item \textbf{root}: This is a Node object which holds the root node of the huffman coding tree.
+		\end{itemize}
+		
+		Moreover, it contains the following methods: 
+		
+		\begin{enumerate}
+		\item \textbf{buildTree()}: This is a method used to build the huffman coding tree. This is done by having a while loop going on until there is only 1 node left in the priority queue. In this loop the following is done:
+		\begin{itemize}
+			\item The smallest two nodes are obtained by polling the first two nodes from the priority queue. 
+			\item A new frequency is computed by adding the frequency of the two nodes obtained.
+			\item A new node is created with a \quotes{\#} character, the frequency computed in the previous step the second smallest node as the right node and the smallest node as the left node.
+			\item This new node is added to the sorted chars and the new node is set as the root of the huffman coding class..
+		\end{itemize}
+		
+		\item \textbf{printCodes()}: This is a method which loops through the codes and prints them one by one
+		\item \textbf{generateCodes(Node, String)}: This is a method which generates the codes recursively for each character. The node passed is the parent node while the string passed represents the code. This is done by first getting the character of the top node. Then it is chece=ked whether the left child node of the top node is null, if so, it means that it is a leaf node and hence, the character and its corresponding code are inserted in the hashmap \textbf{codes} holding the codes. Finally, first a recursibve call is called on the right node with a new code consisting of the current code with a \quotes{1} added at the end and then another recursive call is made on the left but this time with a new code consisting of the current code with a \quotes{0} added at the end.
+		\item \textbf{getShortest()}: This is a function which gets the shortest code and is used for testing the Huffman coding end results. This is done by first setting a variable holding the shortest length to the maximum value of integer and a variable holding the shortest character to null. After this, every code in the hashmap \textbf{codes} is traversed and for each code it is checked if its length is shorter than the current shortest. If so, the two variables holding the shortest length and the corresponding character of the code with the shortest length are set to the current character. Finally, the shortest character is printed and it is returned.
+		
+				\item \textbf{reset()}: This is a function which resets all the global variables and is in fact used for testing.
+				
+				\item \textbf{getCodes()}: This is a getter function for the treemap containing codes.
+				\item \textbf{getFrequencies()}: This is a getter function for the hashmap containing frequencies.
+				\item \textbf{getSortedChars()}: This is a getter function for the priority queue containing huffman coding nodes.
+				\item \textbf{getRoot()}: This is a getter function for the root node of the huffman coding tree.
+				\item \textbf{setSortedChars(PriorityQueue\textless Node\textgreater)}: This is a setter function to set the priority queue containing huffman coding nodes.
+				
+				
+
+		\end{enumerate}
+		
+		\subsection{How to run}
+
+In order to run the implementation for task 2, an additional class named \textbf{HuffmanCodingExecutor} was created and in its main method, the command line arguments are obtained. First it is checked if the any filenam is passed and i not, a \textbf{NoFilePassedException} is thrown. Otherwise, the filename of the input file is obtained from the arguments and by calling the function \textbf{populateInitFrequencies(String)}, the frequencies of each character are populated. Then, the function \textbf{buildTree()} to build the tree and is followed by calling \textbf{generateCodes()} with the root node and an empty string. Finally, the codes are printed by calling \textbf{printCodes()}.
 
 \begin{enumerate}
 \item Go to the directory \quotes{src/main/java}
-\item Run \quotes{javac ParserExecutor.java}
-\item Run \quotes{java ParserExecutor \textless anyExpression\textgreater}
+\item Run \quotes{javac HuffmanCodingExecutor.java}
+\item Run \quotes{java HuffmanCodingExecutor \textless anyFilePath\textgreater}
 \end{enumerate}
+
+		\subsection{Testing}
+
+In order to test the implementation for task 2, an additional testing class named \textbf{HuffmanCodingTest} was created and this involves numerous integration tests which basically performs Huffman coding on a file and asserts the shortest code. Apart from these integration tests, some unit tests  were created to test exceptions such as the \textbf{NoFilePassedException} in the executor and the \textbf{CharacterNotSupportedException} found in the FileOperation class where the file is parsed.
+
+The integration tests performed can be found below:
+
+				\begin{figure}[H]
+					\centering
+			 			\includegraphics[width=0.5\textwidth]{hctest1.png}
+			 			\centering
+			  			\caption{Test result for \quotes{aaaaabbbbbbbbbccccccccccccdddddddddddddeeeeeeeeeeeeeeeefffffffffffffffffffffffffffffffffffffffffffff}}
+			  			\label{fig:dplltest1}
+					\end{figure}
+					
+				\begin{figure}[H]
+					\centering
+			 			\includegraphics[width=0.5\textwidth]{hctest1.png}
+			 			\centering
+			  			\caption{Test result for \quotes{111111122222333jisjiajsadgwwbhdwwbdDDDDDDDDDDDDDDDDDDDDDDDDDDDDaaaaaa}}
+			  			\label{fig:hctest1}
+					\end{figure}
+				
+
+				\begin{figure}[H]
+					\centering
+			 			\includegraphics[width=0.5\textwidth]{hctest4.png}
+			 			\centering
+			  			\caption{Test result for\quotes{abbc}}
+			  			\label{fig:hctest4}
+					\end{figure}
+					
+				\begin{figure}[H]
+					\centering
+			 			\includegraphics[width=0.5\textwidth]{hctest5.png}
+			 			\centering
+			  			\caption{Test result for \quotes{AhsuahdbhAAAAAncuwhwdhAAAAAAajncuhwcuwcwww82787AAAAAAAAAxnjhuwbwdhwdwhdAAAAAAAAAAAAAAA}}
+			  			\label{fig:hctest5}
+					\end{figure}
+					
+									\begin{figure}[H]
+					\centering
+			 			\includegraphics[width=0.7\textwidth]{hctest3.png}
+			 			\centering
+			  			\caption{Test result for \quotes{NCHJKWKIZZZZZZZZZZZZZZZZZZZZZnxuwbwjnxwZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZwuwbdhbwdbwjdbwdwwdkwZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZansuqnuiqdjwqiudqjbqwvubhbwbuhqwjwxu18726728912412bhjvdjwhqbDDDANHADNAXHWM}}
+			  			\label{fig:hctest3}
+					\end{figure}
+					
+					
+		\section{Conclusion}
+		
+		To conclude, I managed to complete all the tasks required in the specification. In relation to task 1, following the course notes step by step and implementing a feature after the other, made it pretty much simple to come up with the solution which I have implemented. In relation to the heuristic which I had to implement for the chooseLiteral() method, I had to conduct more research from which I found different interesting implementations. Some where more complex than the others but after consulting with the lecturer, I sticked to the DLIS heuristic. Moreover, for the part were I had to discuss several practical applications of SAT, I managed to find two papers which were quite detailed and hence, made it easier to understand and discuss the different types of applications. On the other hand, with relation to task 2, I  followed the course notes and an article explaining the algorithm\cite{hc}, where I got the hang of how Huffman's algorithm works, the importance of having an optimal coding tree and the correct way of building the tree. After this, I realized that Java's PriorityQueue data structure would be perfect for this scenario as it would keep the nodes sorted by their frequencies. After having the design of the flow in my mind, It was easy constructing the methods which when called after each other, performs Huffman coding as expected.
+					
 			
 			
 		\bibliographystyle{ieeetr}

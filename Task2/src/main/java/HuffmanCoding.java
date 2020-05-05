@@ -6,13 +6,13 @@ import java.util.*;
 public class HuffmanCoding
 {
     //hashmap to hold frequencies
-    static HashMap<Character, Integer> frequencies = new HashMap<Character, Integer>();
+    private static HashMap<Character, Integer> frequencies = new HashMap<Character, Integer>();
     //priority queue to hold nodes to build trees
-    static PriorityQueue<Node> sortedChars;
+    private static PriorityQueue<Node> sortedChars;
     //treemap to hold codes sorted by character
-    static TreeMap<Character, String> codes = new TreeMap<Character, String>();
+    private static TreeMap<Character, String> codes = new TreeMap<Character, String>();
     //root
-    static Node root = null;
+    private static Node root = null;
 
     /**
      * Method to build the tree
@@ -58,9 +58,9 @@ public class HuffmanCoding
         //get topNode's character
         Character nodeChar = topNode.getCharacter();
         //base case
-        if (nodeChar != '#' && topNode.left == null && topNode.right == null)
+        if (topNode.left == null)
         {
-            //add to code and return
+            //add to the treemap of codes, since it is a treemap, its already sorted on insert
             codes.put(nodeChar, code);
             return;
         }
@@ -70,17 +70,6 @@ public class HuffmanCoding
         generateCodes(topNode.left, code + "0");
     }
 
-    /**
-     * Method to perform huffmanCoding
-     */
-    public static void huffmanCoding(String filename) throws IOException, CharacterNotSupportedException {
-        FileOperation.populateInitFrequencies(filename);
-        buildTree();
-        generateCodes(HuffmanCoding.root, "");
-        printCodes();
-        getShortest();
-        getLongest();
-    }
 
     /**
      * Method to print the shortest code
@@ -107,58 +96,108 @@ public class HuffmanCoding
             }
         }
 
-        System.out.println(shortestChar);
+        System.out.println("SHORTEST: "+shortestChar);
         //return the character with the shortest code
         return shortestChar;
     }
 
+//    /**
+//     * Method to print the largest code
+//     * @return
+//     */
+//    public static Character getLongest()
+//    {
+//        //holder for biggest code
+//        int biggestCode = -1;
+//        //holder for longest length
+//        int longestLength = -1;
+//        //holder for character with longest code
+//        Character longestChar = null;
+//
+//        //go through every code
+//        for(Map.Entry<Character, String> entry : codes.entrySet())
+//        {
+//            //get its code length
+//            int currentCodeLength = entry.getValue().length();
+//            //get its code value
+//            int currentCode = Integer.parseInt(entry.getValue());
+//
+//            //if the length is bigger than the current
+//            if(currentCodeLength>longestLength)
+//            {
+//                //set new longest
+//                longestChar = entry.getKey();
+//                longestLength = currentCodeLength;
+//                biggestCode = currentCode;
+//            }
+//            //if it is equal
+//            else if(currentCodeLength>longestLength)
+//            {
+//                //if it has a smaller value than the current longest
+//                if(currentCode < biggestCode)
+//                {
+//                    //set new longest
+//                    longestChar = entry.getKey();
+//                    biggestCode = currentCode;
+//                }
+//
+//            }
+//        }
+//
+//        System.out.println(longestChar);
+//        //return the character with the longest code
+//        return longestChar;
+//
+//    }
+
     /**
-     * Method to print the largest code
-     * @return
+     * Method to reset for testing
      */
-    public static Character getLongest()
+    public static void reset()
     {
-        //holder for biggest code
-        int biggestCode = -1;
-        //holder for longest length
-        int longestLength = -1;
-        //holder for character with longest code
-        Character longestChar = null;
-
-        //go through every code
-        for(Map.Entry<Character, String> entry : codes.entrySet())
-        {
-            //get its code length
-            int currentCodeLength = entry.getValue().length();
-            //get its code value
-            int currentCode = Integer.parseInt(entry.getValue());
-
-            //if the length is bigger than the current
-            if(currentCodeLength>longestLength)
-            {
-                //set new longest
-                longestChar = entry.getKey();
-                longestLength = currentCodeLength;
-                biggestCode = currentCode;
-            }
-            //if it is equal
-            else if(currentCodeLength>longestLength)
-            {
-                //if it has a smaller value than the current longest
-                if(currentCode < biggestCode)
-                {
-                    //set new longest
-                    longestChar = entry.getKey();
-                    biggestCode = currentCode;
-                }
-
-            }
-        }
-
-        System.out.println(longestChar);
-        //return the character with the longest code
-        return longestChar;
-
+        frequencies = new HashMap<Character, Integer>();
+        sortedChars = null;
+        codes = new TreeMap<Character, String>();
+        root = null;
     }
 
+    /**
+     * Getter for codes
+     * @return treemap of codes
+     */
+    public static TreeMap<Character, String> getCodes() {
+        return codes;
+    }
+
+    /**
+     * Getter for frequencies
+     * @return hashmap containing frequencies
+     */
+    public static HashMap<Character, Integer> getFrequencies() {
+        return frequencies;
+    }
+
+    /**
+     * Getter for sorted Chars
+     * @return priority queue for characters nodes
+     */
+    public static PriorityQueue<Node> getSortedChars() {
+        return sortedChars;
+    }
+
+    /**
+     * Getter for root node
+     * @return root node
+     */
+    public static Node getRoot() {
+        return root;
+    }
+
+    /**
+     * Setter for sortedChars
+     * @param sortedChars sortedChars to set
+     */
+    public static void setSortedChars(PriorityQueue<Node> sortedChars) {
+        HuffmanCoding.sortedChars = sortedChars;
+    }
 }
