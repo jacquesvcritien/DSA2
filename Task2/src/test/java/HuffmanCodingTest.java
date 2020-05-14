@@ -5,6 +5,7 @@ import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 
+import java.io.FileNotFoundException;
 import java.io.IOException;
 
 public class HuffmanCodingTest
@@ -98,6 +99,7 @@ public class HuffmanCodingTest
         char shortest = HuffmanCoding.getShortest();
 
         Assert.assertEquals("Asserting equals shortest code character", 'Z', shortest);
+        Assert.assertEquals("Asserting equals number of different codes", 33, HuffmanCoding.getCodes().size());
 
 
     }
@@ -156,6 +158,17 @@ public class HuffmanCodingTest
         char shortest = HuffmanCoding.getShortest();
 
         Assert.assertEquals("Asserting equals shortest code character", 'a', shortest);
+
+    }
+
+    /**
+     * tets for when a bad fiel path is passed as argument
+     */
+    @Test(expected = FileNotFoundException.class)
+    public void testBadFilePath() throws IOException, NoFilePassedException, CharacterNotSupportedException {
+        String[] args = new String[1];
+        args[0] = "badfile.txt";
+        HuffmanCodingExecutor.main(args);
 
     }
 

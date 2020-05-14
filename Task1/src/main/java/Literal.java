@@ -28,7 +28,7 @@ public class Literal {
             this.negated = stringLiteral.length() == 2;
 
             //if negated, substring and get the value of the symbol, otherwise get the value directly
-            this.symbol = (this.negated) ? Symbol.valueOf(stringLiteral.substring(stringLiteral.length()-1).toLowerCase()) : Symbol.valueOf(stringLiteral.toLowerCase());
+            this.symbol = (this.negated) ? Symbol.valueOf(stringLiteral.substring(stringLiteral.length()-1)) : Symbol.valueOf(stringLiteral);
 
         }
         catch(IllegalArgumentException e)

@@ -1,0 +1,26 @@
+This is pdfTeX, Version 3.14159265-2.6-1.40.19 (MiKTeX 2.9.6840 64-bit) (preloaded format=pdftex 2020.2.21)  2 MAY 2020 13:57
+entering extended mode
+**"C:/Users/dell/Documents/School/Year 2/DSA2/DSA2/Documentation/references.bib
+"
+("C:/Users/dell/Documents/School/Year 2/DSA2/DSA2/Documentation/references.bib"
+
+Overfull \hbox (58.57832pt too wide) in paragraph at lines 28--34
+[]\tenrm @MISCpa3, HOW-PUB-LISHED = http://www.icsd.aegean.gr/lecturers/konster
+g/teaching/KR/SATapplications.pdf,|
+
+\hbox(7.5+2.5)x469.75499, glue set - 1.0
+.\hbox(0.0+0.0)x20.0
+.\tenrm @
+.\tenrm M
+.\tenrm I
+.\tenrm S
+.etc.
+
+)
+*
+! Emergency stop.
+<*> ...r 2/DSA2/DSA2/Documentation/references.bib"
+                                                  
+End of file on the terminal!
+
+!  ==> Fatal error occurred, no output PDF file produced!

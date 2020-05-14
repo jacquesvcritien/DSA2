@@ -64,7 +64,7 @@ public class LiteralTest {
      */
     @Test
     public void testEqualsWhenNotEqual2() {
-        Literal newLiteral = new Literal(Symbol.x, true);
+        Literal newLiteral = new Literal(Symbol.y, true);
         Assert.assertFalse("Asserting literals equal", literal.equals(newLiteral));
     }
 
@@ -73,7 +73,7 @@ public class LiteralTest {
      */
     @Test
     public void testEqualsWhenNotEqualBoth() {
-        Literal newLiteral = new Literal(Symbol.y, true);
+        Literal newLiteral = new Literal(Symbol.x, true);
         Assert.assertFalse("Asserting literals equal", literal.equals(newLiteral));
     }
 

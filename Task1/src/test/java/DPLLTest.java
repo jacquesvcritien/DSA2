@@ -88,13 +88,13 @@ public class DPLLTest {
 
     @Test
     public void testExhaustivelyApply1LiteralRule() throws SyntaxErrorException {
-        Set<Clause> clauses = Parser.parseString("(x)(!x)");
+        Set<Clause> clauses = Parser.parseString("(x)(!x)(y,z)");
         Clause cl = new Clause();
         Literal lt = new Literal("x");
         cl.addLiteral(lt);
         clauses = DPLL.exhaustivelyApply1LiteralRule(cl, clauses);
 
-        assertEquals(1, clauses.size());
+        assertEquals(2, clauses.size());
     }
 
     @Test
@@ -143,7 +143,7 @@ public class DPLLTest {
 
     @Test
     public void testChooseLiteral() throws SyntaxErrorException {
-        Set<Clause> clauses = Parser.parseString("(!x)(y, x)(!y,z)(y, w)");
+        Set<Clause> clauses = Parser.parseString("(y)(!x)(y, x)(!y,z)(y, w)");
 
         Literal literalChosen = DPLL.chooseLiteral(clauses);
 
@@ -182,7 +182,7 @@ public class DPLLTest {
 
     @Test
     public void testDPLL5() throws SyntaxErrorException {
-        Set<Clause> clauses = Parser.parseString("(!x,y)(!x,z)");
+        Set<Clause> clauses = Parser.parseString("(!x,y)(!x,z)(y,z)(w,!y)");
 
         assertTrue(DPLL.DPLL(clauses));
     }
@@ -217,7 +217,7 @@ public class DPLLTest {
 
     @Test
     public void testDPLL10() throws SyntaxErrorException {
-        Set<Clause> clauses = Parser.parseString("(!x)(!x,y)");
+        Set<Clause> clauses = Parser.parseString("(y,!z,w,!x)(y)(y,!x)(y,w)(!z)(x,!z)(w, !x)(w, x)(!x)");
 
         assertTrue(DPLL.DPLL(clauses));
     }

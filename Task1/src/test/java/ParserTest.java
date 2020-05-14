@@ -36,24 +36,12 @@ public class ParserTest {
 
     @Test
     public void testParseStringBySize() throws SyntaxErrorException {
-        Set<Clause> clauses = Parser.parseString("(x,y)(w,y)");
+        Set<Clause> clauses = Parser.parseString("(x)(w,y,z)");
 
         ArrayList<Clause> clausesList = new ArrayList<Clause>(clauses);
 
+        int amountofLiterals = clausesList.get(0).getLiterals().size() + clausesList.get(1).getLiterals().size();
         assertEquals("Asserting there are 2 clauses", 2, clauses.size());
-        assertEquals("Asserting clause 1 has 2 literals", 2, clausesList.get(0).getLiterals().size());
-        assertEquals("Asserting clause 2 has 2 literals", 2, clausesList.get(1).getLiterals().size());
+        assertEquals("Asserting there are 4 literals", 4, amountofLiterals);
     }
-
-    @Test
-    public void testParseStringCaseDoesntMatter() throws SyntaxErrorException {
-        Set<Clause> clauses = Parser.parseString("(x,Y)(W,y)");
-        ArrayList<Clause> clausesList = new ArrayList<Clause>(clauses);
-
-        assertEquals("Asserting there are 2 clauses", 2, clauses.size());
-        assertEquals("Asserting clause 1 has 2 literals", 2, clausesList.get(0).getLiterals().size());
-        assertEquals("Asserting clause 2 has 2 literals", 2, clausesList.get(1).getLiterals().size());
-    }
-
-
 }

@@ -1,8 +1,9 @@
+
 			\documentclass{article}
 			\usepackage{graphicx}
 			\usepackage{listings}
 			\usepackage{titlepic}
-			\usepackage[margin=1.4in]{geometry}
+			\usepackage[margin=1in]{geometry}
 			\usepackage{float}
 			\usepackage{hyperref}
 			\newcommand\tab[1][1cm]{\hspace*{#1}}
@@ -237,19 +238,171 @@ In order to run the implementation for task 1, an additional class named \textbf
 
 	\subsubsection{LiteralTest.java}
 	
-	This testing class contains tests for the constructor method by passing some valid and invalid strings and it is asserted that the correct Literal object or exception is returned. Moreover, tests for the overridden \textbf{equals(Literal)} method were implemented to test all the possible cases.
+	This testing class contains tests for the constructor method by passing some valid and invalid strings and it is asserted that the correct Literal object or exception is returned. Moreover, tests for the overridden \textbf{equals(Literal)} method were implemented to test all the possible cases.\\
+	The following is a list of all the tests found in this class
+	
+
+	\begin{enumerate}
+		\item \textbf{Incorrect literal size test}\\\\
+		\underline{Description}\\
+		\indent This purpose of this test is to see the reaction of the literal constructor when given a literal of an incorrect size, 5 in this case\\\\
+		\underline{Input}\\
+		\indent The input as literal is \quotes{(xyz)}\\	\\
+		\underline{Expected Output}\\
+		\indent The expected output is a SyntaxErrorException being thrown.\\\\
+		\underline{Actual Output}\\
+		\indent A SyntaxErrorException was thrown hence, this test passed.\\
+		
+		\item \textbf{Incorrect literal format}\\\\
+		\underline{Description}\\
+		\indent This purpose of this test is to see the reaction of the literal constructor when given a literal of incorrect format, in this case, a literal of size 2 but with no !\\\\
+		\underline{Input}\\
+		\indent The input as literal is \quotes{xz}\\	\\
+		\underline{Expected Output}\\
+		\indent The expected output is a SyntaxErrorException being thrown.\\\\
+		\underline{Actual Output}\\
+		\indent A SyntaxErrorException was thrown hence, this test passed.\\
+		
+		\item \textbf{Equal literal test}\\\\
+		\underline{Description}\\
+		\indent This purpose of this test is test the equals method for the literals by creating two literals with the same symbol and negation and calling equals on them\\\\
+		\underline{Input}\\
+		\indent The two literals are equal to \quotes{y}\\	\\
+		\underline{Expected Output}\\
+		\indent The expected output is true.\\\\
+		\underline{Actual Output}\\
+		\indent The result was true hence, this test passed.\\
+		
+				
+		\item \textbf{Not equal literal test different symbol}\\\\
+		\underline{Description}\\
+		\indent This purpose of this test is test the equals method for the literals by creating two literals with the same negation but a different symbol\\\\
+		\underline{Input}\\
+		\indent The first literal was \quotes{y} and the second literal was \quotes{x}\\	\\
+		\underline{Expected Output}\\
+		\indent The expected output is false.\\\\
+		\underline{Actual Output}\\
+		\indent The result was false hence, this test passed.\\
+		
+				
+		\item \textbf{Not equal literal test different negation}\\\\
+		\underline{Description}\\
+		\indent This purpose of this test is test the equals method for the literals by creating two literals with the same symbol but a different negation\\\\
+		\underline{Input}\\
+		\indent The first literal was \quotes{y} and the second literal was \quotes{$\neg$y}\\	\\
+		\underline{Expected Output}\\
+		\indent The expected output is false.\\\\
+		\underline{Actual Output}\\
+		\indent The result was false hence, this test passed.\\
+		
+		\item \textbf{Not equal literal test}\\\\
+		\underline{Description}\\
+		\indent This purpose of this test is test the equals method for the literals by creating two literals with a different symbol and a different negation\\\\
+		\underline{Input}\\
+		\indent The first literal was \quotes{y} and the second literal was \quotes{$\neg$x}\\	\\
+		\underline{Expected Output}\\
+		\indent The expected output is false.\\\\
+		\underline{Actual Output}\\
+		\indent The result was false hence, this test passed.\\
+		
+		\item \textbf{Not equal when null}\\\\
+		\underline{Description}\\
+		\indent This purpose of this test is test the equals method when comparing a literal with a null.\\\\
+		\underline{Input}\\
+		\indent The first literal was \quotes{y} and the second literal was null\\	\\
+		\underline{Expected Output}\\
+		\indent The expected output is false.\\\\
+		\underline{Actual Output}\\
+		\indent The result was false hence, this test passed.\\
+		
+		\item \textbf{Same literal equal test}\\\\
+		\underline{Description}\\
+		\indent This purpose of this test is test the equals method when calling equals on the same object\\\\
+		\underline{Input}\\
+		\indent The same literal object with value \quotes{y} was compared\\	\\
+		\underline{Expected Output}\\
+		\indent The expected output is true.\\\\
+		\underline{Actual Output}\\
+		\indent The result was true hence, this test passed.\\
+	\end{enumerate}
 	
 	\subsubsection{ParserTest.java}
 	
-	This testing class contains tests for the \textbf{parseString(String)} method by passing correct and incorrect strings and then asserting that the expected set of clauses are returned or that a \textbf{SyntaxErrorException} is thrown in case a string is not of the correct format.
+	This testing class contains tests for the \textbf{parseString(String)} method by passing correct and incorrect strings and then asserting that the expected set of clauses are returned or that a \textbf{SyntaxErrorException} is thrown in case a string is not of the correct format.\\
+	The following is a list of all the tests found in this class
+	
+
+	\begin{enumerate}
+		\item \textbf{Parse empty string test}\\\\
+		\underline{Description}\\
+		\indent This purpose of this test is to see the reaction of the parseString() method when given an empty string\\\\
+		\underline{Input}\\
+		\indent The input is an empty string\\	\\
+		\underline{Expected Output}\\
+		\indent The expected output is a SyntaxErrorException being thrown.\\\\
+		\underline{Actual Output}\\
+		\indent A SyntaxErrorException was thrown hence, this test passed.\\
+		
+		\item \textbf{Parse string with no starting parenthesis test}\\\\
+		\underline{Description}\\
+		\indent This purpose of this test is to see the reaction of the parseString() method when given a string with no starting parenthesis\\\\
+		\underline{Input}\\
+		\indent The input as literal is \quotes{x,y)(x,y)}\\	\\
+		\underline{Expected Output}\\
+		\indent The expected output is a SyntaxErrorException being thrown.\\\\
+		\underline{Actual Output}\\
+		\indent A SyntaxErrorException was thrown hence, this test passed.\\
+		
+		\item \textbf{Parse string with no ending parenthesis test}\\\\
+		\underline{Description}\\
+		\indent This purpose of this test is to see the reaction of the parseString() method when given a string with no ending parenthesis\\\\
+		\underline{Input}\\
+		\indent The input as literal is \quotes{(x,y)(x,y}\\	\\
+		\underline{Expected Output}\\
+		\indent The expected output is a SyntaxErrorException being thrown.\\\\
+		\underline{Actual Output}\\
+		\indent A SyntaxErrorException was thrown hence, this test passed.\\
+		
+				
+		\item \textbf{Parse string with incorrect symbols test}\\\\
+		\underline{Description}\\
+		\indent This purpose of this test is to see the reaction of the parseString() method when given a string unsupported symbols\\\\
+		\underline{Input}\\
+		\indent The input as literal is \quotes{(a,y)(c,y)}\\	\\
+		\underline{Expected Output}\\
+		\indent The expected output is a SyntaxErrorException being thrown.\\\\
+		\underline{Actual Output}\\
+		\indent A SyntaxErrorException was thrown hence, this test passed.\\
+		
+				
+		\item \textbf{Parse string by size test}\\\\
+		\underline{Description}\\
+		\indent This purpose of this test is to test the output of the parseString() method by using the size of clauses. This is done by first asserting the amount of clauses and then the amount of literals.\\\\
+		\underline{Input}\\
+		\indent The input as literal is \quotes{(x)(w,y,z)}\\	\\
+		\underline{Expected Output}\\
+		\indent The expected is 2 for the amount of clauses and 4 for the amount of literals.\\\\
+		\underline{Actual Output}\\
+		\indent The amount of clauses was 2 while the amount of literals was 4, hence, this test passed.\\
+		
+	\end{enumerate}
 	
 	\subsubsection{DPLLTest.java}
 	
-	This testing class includes unit tests to test all the functions used by the DPLL algorithm and it also contains integration tests to make sure that the DPLL algorithm returns the expected results. It should also be noted that in order to test the implementation better, another symbol \quotes{v} was implemented.
-	Below, one can find the integration tests performed:
+	This testing class includes unit tests to test all the functions used by the DPLL algorithm and it also contains integration tests to make sure that the DPLL algorithm returns the expected results. It should also be noted that in order to test the implementation better, another symbol \quotes{v} was implemented.\\
+	Below, one can find some unit tests and some of the integration tests performed. Not all tests were listed here for the sake of the length of this document since some are repetitive.
 	
-	
-	\begin{figure}[H]
+	\begin{enumerate}
+	\item \textbf{DPLL Integration test 1}\\\\
+		\underline{Description}\\
+		\indent This is an integration test for the DPLL() function\\\\
+		\underline{Input}\\
+		\indent The input as expression is \quotes{(x, !y, z)(v, w, y)(v, !x, !z)}\\	\\
+		\underline{Expected Output}\\
+		\indent The expected output should be true since it is a satisfiable expression.\\\\
+		\underline{Actual Output}\\
+		The output was true, hence, the test passed. Moreover, an assignment was printed out and can be seen in the image below. This makes sense because if we put x and v as true in the input expression, the expression can be solved. 
+			\begin{figure}[H]
 					\centering
 			 			\includegraphics[width=0.7\textwidth]{dplltest1.png}
 			 			\centering
@@ -257,25 +410,52 @@ In order to run the implementation for task 1, an additional class named \textbf
 			  			\label{fig:dplltest1}
 					\end{figure}
 					
-	
-	\begin{figure}[H]
+					
+		\item \textbf{DPLL Integration test 2}\\\\
+		\underline{Description}\\
+		\indent This is an integration test for the DPLL() function\\\\
+		\underline{Input}\\
+		\indent The input as expression is \quotes{(x, y, z)(x, !y)(y, !z)(z, !x)(!x, !y, !z)}\\	\\
+		\underline{Expected Output}\\
+		\indent The expected output should be false since it is an unsatisfiable expression.\\\\
+		\underline{Actual Output}\\
+		The output was false, hence, the test passed. Moreover, UNSAT is printed to show that there is no possible assignment for this expression. 
+				\begin{figure}[H]
 					\centering
 			 			\includegraphics[width=0.7\textwidth]{dplltest2.png}
 			 			\centering
 			  			\caption{Test result for (x, y, z)(x, !y)(y, !z)(z, !x)(!x, !y, !z)}
 			  			\label{fig:dplltest2}
 					\end{figure}
-		
-		\begin{figure}[H]
+					
+					
+				\item \textbf{DPLL Integration test 3 - trivially unsatisfiable}\\\\
+		\underline{Description}\\
+		\indent This is an integration test for the DPLL() function\\\\
+		\underline{Input}\\
+		\indent The input as expression is \quotes{(x)(!x)}\\	\\
+		\underline{Expected Output}\\
+		\indent The expected output should be false since it is an unsatisfiable expression.\\\\
+		\underline{Actual Output}\\
+		The output was false, hence, the test passed. Moreover, UNSAT is printed to show that there is no possible assignment for this trivially unsatisfiable expression. 
+				\begin{figure}[H]
 					\centering
 			 			\includegraphics[width=0.7\textwidth]{dplltest2.png}
 			 			\centering
 			  			\caption{Test result for (x)(!x)}
-			  			\label{fig:dplltest2}
+			  			\label{fig:dplltest3}
 					\end{figure}
-	
-
-		\begin{figure}[H]
+					
+					\item \textbf{DPLL Integration test 4}\\\\
+		\underline{Description}\\
+		\indent This is an integration test for the DPLL() function\\\\
+		\underline{Input}\\
+		\indent The input as expression is \quotes{(!x)(!x,y)(!x,z)}\\	\\
+		\underline{Expected Output}\\
+		\indent The expected output should be true since it is a satisfiable expression.\\\\
+		\underline{Actual Output}\\
+		The output was true, hence, the test passed. Moreover, an assignment was printed out and can be seen in the image below. This makes sense because if we put x as false in the input expression, the expression can be solved. 
+				\begin{figure}[H]
 					\centering
 			 			\includegraphics[width=0.7\textwidth]{dplltest4.png}
 			 			\centering
@@ -283,21 +463,49 @@ In order to run the implementation for task 1, an additional class named \textbf
 			  			\label{fig:dplltest4}
 					\end{figure}		
 
-			\begin{figure}[H]
+\item \textbf{DPLL Integration test 5}\\\\
+		\underline{Description}\\
+		\indent This is an integration test for the DPLL() function\\\\
+		\underline{Input}\\
+		\indent The input as expression is \quotes{(!x,y)(!x,z)(y,z)(w,!y)}\\	\\
+		\underline{Expected Output}\\
+		\indent The expected output should be true since it is a satisfiable expression.\\\\
+		\underline{Actual Output}\\
+		The output was true, hence, the test passed. Moreover, an assignment was printed out and can be seen in the image below. This makes sense because if we put x as false and y and z as true in the input expression, the expression can be solved. 
+				\begin{figure}[H]
 					\centering
 			 			\includegraphics[width=0.7\textwidth]{dplltest5.png}
 			 			\centering
-			  			\caption{Test result for (!x)(!x,y)(!x,z)}
+			  			\caption{Test result for (!x,y)(!x,z)(y,z)(w,!y)}
 			  			\label{fig:dplltest5}
-					\end{figure}	
-
-				\begin{figure}[H]
+					\end{figure}		
+		
+\item \textbf{DPLL Integration test 6}\\\\
+		\underline{Description}\\
+		\indent This is an integration test for the DPLL() function\\\\
+		\underline{Input}\\
+		\indent The input as expression is \quotes{(w)(x, !y)(z,x)(y,!x)(x, !x)(z, !y)}\\	\\
+		\underline{Expected Output}\\
+		\indent The expected output should be true since it is a satisfiable expression.\\\\
+		\underline{Actual Output}\\
+		The output was true, hence, the test passed. Moreover, an assignment was printed out and can be seen in the image below. This makes sense because if we put all x, z, y and w as true in the input expression, the expression can be solved. 
+								\begin{figure}[H]
 					\centering
 			 			\includegraphics[width=0.7\textwidth]{dplltest6.png}
 			 			\centering
 			  			\caption{Test result for (w)(x, !y)(z,x)(y,!x)(x, !x)(z, !y)}
 			  			\label{fig:dplltest6}
 					\end{figure}	
+					
+					\item \textbf{DPLL Integration test 7}\\\\
+		\underline{Description}\\
+		\indent This is an integration test for the DPLL() function\\\\
+		\underline{Input}\\
+		\indent The input as expression is \quotes{(x,y)(w)(!x, z)}\\	\\
+		\underline{Expected Output}\\
+		\indent The expected output should be true since it is a satisfiable expression.\\\\
+		\underline{Actual Output}\\
+		The output was true, hence, the test passed. Moreover, an assignment was printed out and can be seen in the image below. This makes sense because if we put all w and y as true and x as false in the input expression, the expression can be solved. 
 
 				\begin{figure}[H]
 					\centering
@@ -306,7 +514,17 @@ In order to run the implementation for task 1, an additional class named \textbf
 			  			\caption{Test result for (x,y)(w)(!x, z)}
 			  			\label{fig:dplltest7}
 					\end{figure}	
-										
+					
+										\item \textbf{DPLL Integration test 8}\\\\
+		\underline{Description}\\
+		\indent This is an integration test for the DPLL() function\\\\
+		\underline{Input}\\
+		\indent The input as expression is \quotes{(x,y)(x,z)(!y, !z)}\\	\\
+		\underline{Expected Output}\\
+		\indent The expected output should be true since it is a satisfiable expression.\\\\
+		\underline{Actual Output}\\
+		The output was true, hence, the test passed. Moreover, an assignment was printed out and can be seen in the image below. This makes sense because if we put all x as true and y as false in the input expression, the expression can be solved. 
+
 				\begin{figure}[H]
 					\centering
 			 			\includegraphics[width=0.7\textwidth]{dplltest8.png}
@@ -315,21 +533,148 @@ In order to run the implementation for task 1, an additional class named \textbf
 			  			\label{fig:dplltest8}
 					\end{figure}	
 					
+															\item \textbf{DPLL Integration test 9}\\\\
+		\underline{Description}\\
+		\indent This is an integration test for the DPLL() function\\\\
+		\underline{Input}\\
+		\indent The input as expression is \quotes{(x)(!x, y)}\\	\\
+		\underline{Expected Output}\\
+		\indent The expected output should be true since it is a satisfiable expression.\\\\
+		\underline{Actual Output}\\
+		The output was true, hence, the test passed. Moreover, an assignment was printed out and can be seen in the image below. This makes sense because if we put all x and y as true in the input expression, the expression can be solved. 
+
 				\begin{figure}[H]
 					\centering
 			 			\includegraphics[width=0.7\textwidth]{dplltest9.png}
 			 			\centering
 			  			\caption{Test result for(x)(!x, y)}
 			  			\label{fig:dplltest9}
-					\end{figure}						
-		
-								\begin{figure}[H]
+					\end{figure}		
+					
+							\item \textbf{DPLL Integration test 10}\\\\
+		\underline{Description}\\
+		\indent This is an integration test for the DPLL() function\\\\
+		\underline{Input}\\
+		\indent The input as expression is \quotes{(y,!z,w,!x)(y)(y,!x)(y,w)(!z)(x,!z)(w, !x)(w, x)(!x)}\\	\\
+		\underline{Expected Output}\\
+		\indent The expected output should be true since it is a satisfiable expression.\\\\
+		\underline{Actual Output}\\
+		The output was true, hence, the test passed. Moreover, an assignment was printed out and can be seen in the image below. This makes sense because if we put all w and y as true and x and z as false in the input expression, the expression can be solved. 
+
+				\begin{figure}[H]
 					\centering
 			 			\includegraphics[width=0.7\textwidth]{dplltest10.png}
 			 			\centering
-			  			\caption{Test result for(!x)(!x, y)}
+			  			\caption{Test result for (y,!z,w,!x)(y)(y,!x)(y,w)(!z)(x,!z)(w, !x)(w, x)(!x)}
 			  			\label{fig:dplltest10}
 					\end{figure}		
+					
+		\item \textbf{Trivially UNSAT false test}\\\\
+		\underline{Description}\\
+		\indent This purpose of this test is to test the checkTriviallyUnSat() method by passing an expression which is not trivially unsatisfiable\\\\
+		\underline{Input}\\
+		\indent The input is \quotes{(x,y)(x,z)(!x,y)}\\\\
+		\underline{Expected Output}\\
+		\indent The expected output is false.\\\\
+		\underline{Actual Output}\\
+		\indent The output was false, hence, this test passed.\\
+		
+		\item \textbf{Trivially UNSAT true test}\\\\
+		\underline{Description}\\
+		\indent This purpose of this test is to test the checkTriviallyUnSat() method by passing an expression which is trivially unsatisfiable\\\\
+		\underline{Input}\\
+		\indent The input is \quotes{(x)(x,z)(!x,y)(!x)}\\\\
+		\underline{Expected Output}\\
+		\indent The expected output is true.\\\\
+		\underline{Actual Output}\\
+		\indent The output was true, hence, this test passed.\\
+		
+		\item \textbf{Remove trivially SAT test}\\\\
+		\underline{Description}\\
+		\indent This purpose of this test is to test the output of the removeTriviallySat() method by size when given an expression with trivially satisfiable clauses\\\\
+		\underline{Input}\\
+		\indent The input as expression is \quotes{(x,!x)(y)(!z,z)}\\	\\
+		\underline{Expected Output}\\
+		\indent The expected output should be a set of clauses with size 2 less than the initial amount of clauses in the input, therefore, 1.\\\\
+		\underline{Actual Output}\\
+		\indent The output was a set of clauses with size 2 less than the initial amount of clauses, hence, this test passed.\\
+		
+		\item \textbf{Check empty clause false test}\\\\
+		\underline{Description}\\
+		\indent This purpose of this test is to test the output of the checkEmptyClause() method when given no empty clauses in the expression\\\\
+		\underline{Input}\\
+		\indent The input as expression is \quotes{(x,!x)(y)(!z,z)}\\	\\
+		\underline{Expected Output}\\
+		\indent The expected output should be false.\\\\
+		\underline{Actual Output}\\
+		\indent The output was false, hence, this test passed.\\
+		
+		\item \textbf{Check empty clause true test}\\\\
+		\underline{Description}\\
+		\indent This purpose of this test is to test the output of the checkEmptyClause() method when given an empty clauses in the expression\\\\
+		\underline{Input}\\
+		\indent The input as expression is \quotes{(x,!x)(y)(!z,z)()}\\	\\
+		\underline{Expected Output}\\
+		\indent The expected output should be true.\\\\
+		\underline{Actual Output}\\
+		\indent The output was true, hence, this test passed.\\
+		
+		\item \textbf{Exhaustively apply 1 Literal Rule test}\\\\
+		\underline{Description}\\
+		\indent This purpose of this test is to test the output of the exhaustivelyApply1LiteralRule() function by size  when given an expression where the 1 literal rule can be applied\\\\
+		\underline{Input}\\
+		\indent The input as expression is \quotes{(x)(!x)(y,z)} with \quotes{(x)} being he literal to be used to apply the 1 literal rule on the expression\\	\\
+		\underline{Expected Output}\\
+		\indent The expected output should be that 2 clauses will be left from the expression.\\\\
+		\underline{Actual Output}\\
+		\indent The output was 2, hence, this test passed.\\
+		
+		\item \textbf{Get pure literal test}\\\\
+		\underline{Description}\\
+		\indent This purpose of this test is to test the output of the getPureLiteral() function\\\\
+		\underline{Input}\\
+		\indent The input as expression is \quotes{(!x)(y, !x)(!x, w)}\\	\\
+		\underline{Expected Output}\\
+		\indent The expected output should be the the literal \quotes{$\neg$x}.\\\\
+		\underline{Actual Output}\\
+		\indent The output was literal \quotes{$\neg$x}, hence, this test passed.\\
+		
+		\item \textbf{Apply pure literal exhaustively test}\\\\
+		\underline{Description}\\
+		\indent This purpose of this test is to test the output of the applyPureLiteralRule() function by size\\\\
+		\underline{Input}\\
+		\indent The input as expression is \quotes{(!x)(y, x)(z,w)(y, w)}\\	\\
+		\underline{Expected Output}\\
+		\indent The expected output should be 0, because all the clauses would be absorbed.\\\\
+		\underline{Actual Output}\\
+		\indent The output was 0, hence, this test passed.\\
+		
+		\item \textbf{Test choose literal test}\\\\
+		\underline{Description}\\
+		\indent This purpose of this test is to test the output of the chooseLiteral() function\\\\
+		\underline{Input}\\
+		\indent The input as expression is \quotes{(y)(!x)(y, x)(!y,z)(y, w)}\\	\\
+		\underline{Expected Output}\\
+		\indent The expected output should be the literal \quotes{y} because our function uses DLIS and \quotes{y} is the most common.\\\\
+		\underline{Actual Output}\\
+		\indent The output was the literal \quotes{y}, hence, this test passed.\\
+		
+		
+		
+	\end{enumerate}
+	
+
+				
+	
+
+
+
+										
+
+					
+				
+		
+								
 					
 			\subsection{Practical Applications of SAT}
 			
@@ -350,6 +695,11 @@ The most well known practical applications include:
 	To conclude, as can be seen from the above descriptions, usually SAT algorithms must be able to prove unsatisfiability. The best thing about is as time goes by better variable selection heuristics will be found and the implementation of SAT will be even more efficient and optimized. 
 
 \end{enumerate}
+
+
+		\subsection{Evaluation and Conclusion}
+		
+		I managed to complete all the tasks required for this task in the specification. Following the course notes step by step and implementing a feature after the other, made it pretty much simple to come up with the solution which I have implemented. In relation to the heuristic which I had to implement for the chooseLiteral() method, I had to conduct more research from which I found different interesting implementations. Some where more complex than the others but after consulting with the lecturer, I sticked to the DLIS heuristic. Moreover, for the part were I had to discuss several practical applications of SAT, I managed to find two papers which were quite detailed and hence, made it easier to understand and discuss the different types of applications. Finally, I can conclude that since all the tests passed as expected, my implementation works as expected and is robust, since it fails gracefully when it should.
 
 \pagebreak
 
@@ -464,53 +814,144 @@ In order to run the implementation for task 2, an additional class named \textbf
 
 In order to test the implementation for task 2, an additional testing class named \textbf{HuffmanCodingTest} was created and this involves numerous integration tests which basically performs Huffman coding on a file and asserts the shortest code. Apart from these integration tests, some unit tests  were created to test exceptions such as the \textbf{NoFilePassedException} in the executor and the \textbf{CharacterNotSupportedException} found in the FileOperation class where the file is parsed.
 
-The integration tests performed can be found below:
+The integration tests performed can be found below. It is important to note that not all tests found in the code are listed here because otherwise this document would be too long. This was decided since the tests omitted are similar to the ones listed.
 
-				\begin{figure}[H]
+\begin{enumerate}
+	\item \textbf{Huffman Coding Integration test 1}\\\\
+		\underline{Description}\\
+		\indent This is an integration test for the HuffmanCoding() function. This is done by when given an input file with several characters, the number of different codes and the the character with the shortest code is asserted. The character with the shortest code should be the most frequent character in the input stream.\\\\
+		\underline{Input}\\
+		\indent The contents of the input file were \quotes{aaaaabbbbbbbbbccccccccccccdddddddddddddeeeeeeeeeeeeeeeefffffffffffffffffffffffffffffffffffffffffffff}\\	\\
+		\underline{Expected Output}\\
+		\indent The expected output should be `f' as the character having the shortest code and 6 as the number of different codes.\\\\
+		\underline{Actual Output}\\
+		The output was `f' as the character with the shortest code and 6 as the number of different code, hence, the test passed. This can be easily confirmed by counting the number of different characters and and seeing the most frequent character from the file input stream.
+			\begin{figure}[H]
 					\centering
-			 			\includegraphics[width=0.5\textwidth]{hctest1.png}
+			 			\includegraphics[width=0.4\textwidth]{hctest1.png}
 			 			\centering
 			  			\caption{Test result for \quotes{aaaaabbbbbbbbbccccccccccccdddddddddddddeeeeeeeeeeeeeeeefffffffffffffffffffffffffffffffffffffffffffff}}
 			  			\label{fig:dplltest1}
 					\end{figure}
 					
+					\item \textbf{Huffman Coding Integration test 2}\\\\
+		\underline{Description}\\
+		\indent This is an integration test for the HuffmanCoding() function. This is done by when given an input file with several characters, the number of different codes and the the character with the shortest code is asserted. The character with the shortest code should be the most frequent character in the input stream.\\\\
+		\underline{Input}\\
+		\indent The contents of the input file were \quotes{111111122222333jisjiajsadgwwbhdwwbdDDDDDDDDDDDDDDDDDDDDDDDDDDDDaaaaaa}\\	\\
+		\underline{Expected Output}\\
+		\indent The expected output should be `D' as the character having the shortest code and 13 as the number of different codes.\\\\
+		\underline{Actual Output}\\
+		The output was `D' as the character with the shortest code and 13 as the number of different code, hence, the test passed. This can be easily confirmed by counting the number of different characters and and seeing the most frequent character from the file input stream.
 				\begin{figure}[H]
 					\centering
-			 			\includegraphics[width=0.5\textwidth]{hctest1.png}
+			 			\includegraphics[width=0.4\textwidth]{hctest2.png}
 			 			\centering
 			  			\caption{Test result for \quotes{111111122222333jisjiajsadgwwbhdwwbdDDDDDDDDDDDDDDDDDDDDDDDDDDDDaaaaaa}}
-			  			\label{fig:hctest1}
+			  			\label{fig:hctest2}
 					\end{figure}
-				
-
+					
+					
+					\item \textbf{Huffman Coding Integration test 3}\\\\
+		\underline{Description}\\
+		\indent This is an integration test for the HuffmanCoding() function. This is done by when given an input file with several characters, the number of different codes and the the character with the shortest code is asserted. The character with the shortest code should be the most frequent character in the input stream.\\\\
+		\underline{Input}\\
+		\indent The contents of the input file were \quotes{aabc}\\	\\
+		\underline{Expected Output}\\
+		\indent The expected output should be `b' as the character having the shortest code and 3 as the number of different codes.\\\\
+		\underline{Actual Output}\\
+		The output was `b' as the character with the shortest code and 3 as the number of different code, hence, the test passed. This can be easily confirmed by counting the number of different characters and and seeing the most frequent character from the file input stream.
 				\begin{figure}[H]
 					\centering
-			 			\includegraphics[width=0.5\textwidth]{hctest4.png}
+			 			\includegraphics[width=0.4\textwidth]{hctest4.png}
 			 			\centering
 			  			\caption{Test result for\quotes{abbc}}
 			  			\label{fig:hctest4}
 					\end{figure}
 					
+										\item \textbf{Huffman Coding Integration test 4}\\\\
+		\underline{Description}\\
+		\indent This is an integration test for the HuffmanCoding() function. This is done by when given an input file with several characters, the number of different codes and the the character with the shortest code is asserted. The character with the shortest code should be the most frequent character in the input stream.\\\\
+		\underline{Input}\\
+		\indent The contents of the input file were \quotes{AhsuahdbhAAAAAncuwhwdhAAAAAAajncuhwcuwcwww82787AAAAAAAAAxnjhuwbwdhwdwhdAAAAAAAAAAAAAAA}\\	\\
+		\underline{Expected Output}\\
+		\indent The expected output should be `A' as the character having the shortest code and 15 as the number of different codes.\\\\
+		\underline{Actual Output}\\
+		The output was `A' as the character with the shortest code and 15 as the number of different code, hence, the test passed. This can be easily confirmed by counting the number of different characters and and seeing the most frequent character from the file input stream.
 				\begin{figure}[H]
 					\centering
-			 			\includegraphics[width=0.5\textwidth]{hctest5.png}
+			 			\includegraphics[width=0.45\textwidth]{hctest5.png}
 			 			\centering
 			  			\caption{Test result for \quotes{AhsuahdbhAAAAAncuwhwdhAAAAAAajncuhwcuwcwww82787AAAAAAAAAxnjhuwbwdhwdwhdAAAAAAAAAAAAAAA}}
 			  			\label{fig:hctest5}
 					\end{figure}
 					
+					
+					\item \textbf{Huffman Coding Integration test 5}\\\\
+		\underline{Description}\\
+		\indent This is an integration test for the HuffmanCoding() function. This is done by when given an input file with several characters, the number of different codes and the the character with the shortest code is asserted. The character with the shortest code should be the most frequent character in the input stream.\\\\
+		\underline{Input}\\
+		\indent The contents of the input file were \quotes{NCHJKWKIZZZZZZZZZZZZZZZZZZZZZnxuwbwjnxwZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZwuwbdhbwdbwjdbwdwwdkwZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZansuqnuiqdjwqiudqjbqwvubhbwbuhqwjwxu18726728912412bhjvdjwhqbDDDANHADNAXHWM}\\	\\
+		\underline{Expected Output}\\
+		\indent The expected output should be `Z' as the character having the shortest code and 33 as the number of different codes.\\\\
+		\underline{Actual Output}\\
+		The output was `Z' as the character with the shortest code and 33 as the number of different code, hence, the test passed. This can be easily confirmed by counting the number of different characters and and seeing the most frequent character from the file input stream.
 									\begin{figure}[H]
 					\centering
-			 			\includegraphics[width=0.7\textwidth]{hctest3.png}
+			 			\includegraphics[width=0.4\textwidth]{hctest3.png}
 			 			\centering
 			  			\caption{Test result for \quotes{NCHJKWKIZZZZZZZZZZZZZZZZZZZZZnxuwbwjnxwZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZwuwbdhbwdbwjdbwdwwdkwZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZansuqnuiqdjwqiudqjbqwvubhbwbuhqwjwxu18726728912412bhjvdjwhqbDDDANHADNAXHWM}}
 			  			\label{fig:hctest3}
 					\end{figure}
 					
 					
-		\section{Conclusion}
+					\item \textbf{Unsupported character test}\\\\
+		\underline{Description}\\
+		\indent This is an integration test for the reaction of the populateInitFrequencies() function when given an unsupported character.\\\\
+		\underline{Input}\\
+		\indent The contents of the input file were \quotes{\}}\\	\\
+		\underline{Expected Output}\\
+		\indent The expected output should a CharacterNotSupportedException being thrown.\\\\
+		\underline{Actual Output}\\
+		The output was a thrown CharacterNotSupportedException, hence, the test passed
 		
-		To conclude, I managed to complete all the tasks required in the specification. In relation to task 1, following the course notes step by step and implementing a feature after the other, made it pretty much simple to come up with the solution which I have implemented. In relation to the heuristic which I had to implement for the chooseLiteral() method, I had to conduct more research from which I found different interesting implementations. Some where more complex than the others but after consulting with the lecturer, I sticked to the DLIS heuristic. Moreover, for the part were I had to discuss several practical applications of SAT, I managed to find two papers which were quite detailed and hence, made it easier to understand and discuss the different types of applications. On the other hand, with relation to task 2, I  followed the course notes and an article explaining the algorithm\cite{hc}, where I got the hang of how Huffman's algorithm works, the importance of having an optimal coding tree and the correct way of building the tree. After this, I realized that Java's PriorityQueue data structure would be perfect for this scenario as it would keep the nodes sorted by their frequencies. After having the design of the flow in my mind, It was easy constructing the methods which when called after each other, performs Huffman coding as expected.
+							\item \textbf{No file passed exception test}\\\\
+		\underline{Description}\\
+		\indent This is an integration test for the reaction of the runner class main function when no file path is passed\\\\
+		\underline{Input}\\
+		\indent There was no file path passed as input\\	\\
+		\underline{Expected Output}\\
+		\indent The expected output should a NoFilePassedException being thrown.\\\\
+		\underline{Actual Output}\\
+		The output was a thrown NoFilePassedException, hence, the test passed
+		
+		\item \textbf{No file found exception test}\\\\
+		\underline{Description}\\
+		\indent This is an integration test for the reaction of the runner class main function when an inexistent file path is passed\\\\
+		\underline{Input}\\
+		\indent An inexistent file path is passed as argument\\	\\
+		\underline{Expected Output}\\
+		\indent The expected output should a FileNotFoundException being thrown.\\\\
+		\underline{Actual Output}\\
+		The output was a thrown FileNotFoundException, hence, the test passed
+					
+					\end{enumerate}
+
+
+		\subsection{Evaluation and Conclusion}
+		
+		I managed to complete all the tasks required in the specification. I followed the course notes and an article explaining the algorithm\cite{hc}, where I got the hang of how Huffman's algorithm works, the importance of having an optimal coding tree and the correct way of building the tree. After this, I realized that Java's PriorityQueue data structure would be perfect for this scenario as it would keep the nodes sorted by their frequencies. After having the design of the flow in my mind, It was easy constructing the methods which when called after each other, performs Huffman coding as expected. Moreover, I think that my implementation works as expected and is robust, since it fails gracefully when it should and passes all the tests.
+				
+				
+				
+
+
+					
+
+					
+
+					
+					
 					
 			
 			
@@ -522,3 +963,4 @@ The integration tests performed can be found below:
 			
 					
 			\end{document}
+

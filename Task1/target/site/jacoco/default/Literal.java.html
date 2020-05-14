@@ -28,7 +28,7 @@ public class Literal {
 <span class="fc bfc" id="L28" title="All 2 branches covered.">            this.negated = stringLiteral.length() == 2;</span>
 
             //if negated, substring and get the value of the symbol, otherwise get the value directly
-<span class="fc bfc" id="L31" title="All 2 branches covered.">            this.symbol = (this.negated) ? Symbol.valueOf(stringLiteral.substring(stringLiteral.length()-1).toLowerCase()) : Symbol.valueOf(stringLiteral.toLowerCase());</span>
+<span class="fc bfc" id="L31" title="All 2 branches covered.">            this.symbol = (this.negated) ? Symbol.valueOf(stringLiteral.substring(stringLiteral.length()-1)) : Symbol.valueOf(stringLiteral);</span>
 
         }
 <span class="fc" id="L34">        catch(IllegalArgumentException e)</span>
