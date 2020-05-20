@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<testsuite tests="26" failures="0" name="DPLLTest" time="0.072" errors="0" skipped="0">
+<testsuite tests="26" failures="0" name="DPLLTest" time="0.052" errors="0" skipped="0">
   <properties>
     <property name="java.runtime.name" value="Java(TM) SE Runtime Environment"/>
     <property name="sun.boot.library.path" value="C:\Program Files\Java\jdk1.8.0_241\jre\bin"/>
@@ -64,30 +64,30 @@
     <property name="sun.desktop" value="windows"/>
     <property name="sun.cpu.isalist" value="amd64"/>
   </properties>
-  <testcase classname="DPLLTest" name="testExhaustivelyApply1LiteralRule" time="0.04"/>
+  <testcase classname="DPLLTest" name="testExhaustivelyApply1LiteralRule" time="0.033"/>
   <testcase classname="DPLLTest" name="checkTriviallyUnSatTwoClauseFalse" time="0"/>
   <testcase classname="DPLLTest" name="checkTriviallyUnSatTwoClauseFalse2" time="0"/>
   <testcase classname="DPLLTest" name="testExhaustivelyApply1LiteralRule2" time="0"/>
   <testcase classname="DPLLTest" name="testDPLL2" time="0.01"/>
   <testcase classname="DPLLTest" name="testDPLL3" time="0"/>
-  <testcase classname="DPLLTest" name="testDPLL4" time="0.001"/>
-  <testcase classname="DPLLTest" name="testDPLL5" time="0"/>
-  <testcase classname="DPLLTest" name="testDPLL6" time="0"/>
+  <testcase classname="DPLLTest" name="testDPLL4" time="0"/>
+  <testcase classname="DPLLTest" name="testDPLL5" time="0.002"/>
+  <testcase classname="DPLLTest" name="testDPLL6" time="0.001"/>
   <testcase classname="DPLLTest" name="testDPLL7" time="0.001"/>
   <testcase classname="DPLLTest" name="testDPLL8" time="0.001"/>
-  <testcase classname="DPLLTest" name="testDPLL9" time="0.001"/>
-  <testcase classname="DPLLTest" name="testDPLL" time="0.007"/>
+  <testcase classname="DPLLTest" name="testDPLL9" time="0"/>
+  <testcase classname="DPLLTest" name="testDPLL" time="0"/>
   <testcase classname="DPLLTest" name="testGetPureLiteral" time="0"/>
   <testcase classname="DPLLTest" name="testCheckEmptyClausesEmpty" time="0"/>
   <testcase classname="DPLLTest" name="testCheckEmptyClausesNonEmpty" time="0"/>
   <testcase classname="DPLLTest" name="checkTriviallyUnSatOneClause" time="0"/>
-  <testcase classname="DPLLTest" name="testRemoveTriviallySatBySizeRemove1" time="0.001"/>
+  <testcase classname="DPLLTest" name="testRemoveTriviallySatBySizeRemove1" time="0"/>
   <testcase classname="DPLLTest" name="testRemoveTriviallySatBySizeRemove2" time="0"/>
-  <testcase classname="DPLLTest" name="testDPLL10" time="0.003"/>
-  <testcase classname="DPLLTest" name="testChooseLiteral" time="0.001"/>
+  <testcase classname="DPLLTest" name="testDPLL10" time="0.002"/>
+  <testcase classname="DPLLTest" name="testChooseLiteral" time="0"/>
   <testcase classname="DPLLTest" name="testRemoveTriviallySatEmpty" time="0"/>
-  <testcase classname="DPLLTest" name="testRemoveTriviallySatNotSatBySize" time="0.002"/>
-  <testcase classname="DPLLTest" name="testApplyPureLiteralRule" time="0.004"/>
-  <testcase classname="DPLLTest" name="checkTriviallyUnSatTrue" time="0"/>
+  <testcase classname="DPLLTest" name="testRemoveTriviallySatNotSatBySize" time="0"/>
+  <testcase classname="DPLLTest" name="testApplyPureLiteralRule" time="0.001"/>
+  <testcase classname="DPLLTest" name="checkTriviallyUnSatTrue" time="0.001"/>
   <testcase classname="DPLLTest" name="checkTriviallyUnSatEmpty" time="0"/>
 </testsuite>

@@ -74,7 +74,7 @@ public class FileOperation {
             char character = (char) asciiCode;
             //if not in accepted character range, throw error
             if((character < 'A' || character > 'Z') && (character < 'a' || character > 'z') && (character < '0' || character > '9'))
-                throw new CharacterNotSupportedException("File should only includes A-Z, a-z or 0-9 characters");
+                throw new CharacterNotSupportedException("File should only includes A-Z, a-z or 0-9. The incorrect character is "+character);
 
             //if frequency exist in hashmap, add to it
             if(HuffmanCoding.getFrequencies().containsKey(character)) {

@@ -2,6 +2,6 @@ GROUP,PACKAGE,CLASS,INSTRUCTION_MISSED,INSTRUCTION_COVERED,BRANCH_MISSED,BRANCH_
 Task2,default,NodeComparator,0,9,0,0,0,2,0,2,0,2
 Task2,default,Node,0,30,0,0,0,12,0,4,0,4
 Task2,default,HuffmanCoding,0,180,0,10,0,45,0,17,0,12
-Task2,default,FileOperation,0,121,0,18,0,21,0,11,0,2
+Task2,default,FileOperation,0,128,0,18,0,21,0,11,0,2
 Task2,exceptions,CharacterNotSupportedException,0,4,0,0,0,2,0,1,0,1
 Task2,exceptions,NoFilePassedException,0,4,0,0,0,2,0,1,0,1

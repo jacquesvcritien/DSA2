@@ -215,9 +215,8 @@
 In order to run the implementation for task 1, an additional class named \textbf{ParserExecutor} was created and in its main method, the command line arguments are obtained. These are joined together using a string builder and then they are parsed into clauses by calling the function \textbf{parseString(String)}. Finally, the function \textbf{DPLL()} is called with the clauses generated form the arguments to start checking the expression's satisfiability. 
 
 \begin{enumerate}
-\item Go to the directory \quotes{src/main/java}
-\item Run \quotes{javac ParserExecutor.java}
-\item Run \quotes{java ParserExecutor \textless anyExpression\textgreater}
+\item Go to the directory \quotes{DSA2}
+\item Run \textbf{java -jar .\textbackslash Task1-1.0.jar \quotes{\textless anyExpression\textgreater}}
 \end{enumerate}
 
 		\subsection{Testing}
@@ -805,9 +804,8 @@ The most well known practical applications include:
 In order to run the implementation for task 2, an additional class named \textbf{HuffmanCodingExecutor} was created and in its main method, the command line arguments are obtained. First it is checked if the any filenam is passed and i not, a \textbf{NoFilePassedException} is thrown. Otherwise, the filename of the input file is obtained from the arguments and by calling the function \textbf{populateInitFrequencies(String)}, the frequencies of each character are populated. Then, the function \textbf{buildTree()} to build the tree and is followed by calling \textbf{generateCodes()} with the root node and an empty string. Finally, the codes are printed by calling \textbf{printCodes()}.
 
 \begin{enumerate}
-\item Go to the directory \quotes{src/main/java}
-\item Run \quotes{javac HuffmanCodingExecutor.java}
-\item Run \quotes{java HuffmanCodingExecutor \textless anyFilePath\textgreater}
+\item Go to the directory \quotes{DSA2}
+\item Run \textbf{java -jar .\textbackslash Task2-1.0.jar \quotes{\textless anyFilePath\textgreater}}
 \end{enumerate}
 
 		\subsection{Testing}

@@ -74,7 +74,7 @@ import java.util.PriorityQueue;
 <span class="fc" id="L74">            char character = (char) asciiCode;</span>
             //if not in accepted character range, throw error
 <span class="fc bfc" id="L76" title="All 12 branches covered.">            if((character &lt; 'A' || character &gt; 'Z') &amp;&amp; (character &lt; 'a' || character &gt; 'z') &amp;&amp; (character &lt; '0' || character &gt; '9'))</span>
-<span class="fc" id="L77">                throw new CharacterNotSupportedException(&quot;File should only includes A-Z, a-z or 0-9 characters&quot;);</span>
+<span class="fc" id="L77">                throw new CharacterNotSupportedException(&quot;File should only includes A-Z, a-z or 0-9. The incorrect character is &quot;+character);</span>
 
             //if frequency exist in hashmap, add to it
 <span class="fc bfc" id="L80" title="All 2 branches covered.">            if(HuffmanCoding.getFrequencies().containsKey(character)) {</span>

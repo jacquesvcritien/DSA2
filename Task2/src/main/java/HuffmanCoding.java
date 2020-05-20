@@ -101,55 +101,6 @@ public class HuffmanCoding
         return shortestChar;
     }
 
-//    /**
-//     * Method to print the largest code
-//     * @return
-//     */
-//    public static Character getLongest()
-//    {
-//        //holder for biggest code
-//        int biggestCode = -1;
-//        //holder for longest length
-//        int longestLength = -1;
-//        //holder for character with longest code
-//        Character longestChar = null;
-//
-//        //go through every code
-//        for(Map.Entry<Character, String> entry : codes.entrySet())
-//        {
-//            //get its code length
-//            int currentCodeLength = entry.getValue().length();
-//            //get its code value
-//            int currentCode = Integer.parseInt(entry.getValue());
-//
-//            //if the length is bigger than the current
-//            if(currentCodeLength>longestLength)
-//            {
-//                //set new longest
-//                longestChar = entry.getKey();
-//                longestLength = currentCodeLength;
-//                biggestCode = currentCode;
-//            }
-//            //if it is equal
-//            else if(currentCodeLength>longestLength)
-//            {
-//                //if it has a smaller value than the current longest
-//                if(currentCode < biggestCode)
-//                {
-//                    //set new longest
-//                    longestChar = entry.getKey();
-//                    biggestCode = currentCode;
-//                }
-//
-//            }
-//        }
-//
-//        System.out.println(longestChar);
-//        //return the character with the longest code
-//        return longestChar;
-//
-//    }
-
     /**
      * Method to reset for testing
      */

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<testsuite tests="8" failures="0" name="HuffmanCodingTest" time="0.033" errors="0" skipped="0">
+<testsuite tests="11" failures="0" name="HuffmanCodingTest" time="0.054" errors="0" skipped="0">
   <properties>
     <property name="java.runtime.name" value="Java(TM) SE Runtime Environment"/>
     <property name="sun.boot.library.path" value="C:\Program Files\Java\jdk1.8.0_241\jre\bin"/>
@@ -64,12 +64,15 @@
     <property name="sun.desktop" value="windows"/>
     <property name="sun.cpu.isalist" value="amd64"/>
   </properties>
-  <testcase classname="HuffmanCodingTest" name="testWrongInput1" time="0.008"/>
+  <testcase classname="HuffmanCodingTest" name="testWrongInput1" time="0.021"/>
   <testcase classname="HuffmanCodingTest" name="testWrongInput2" time="0"/>
-  <testcase classname="HuffmanCodingTest" name="testWrongInput3" time="0"/>
-  <testcase classname="HuffmanCodingTest" name="test1" time="0.007"/>
+  <testcase classname="HuffmanCodingTest" name="testWrongInput3" time="0.001"/>
+  <testcase classname="HuffmanCodingTest" name="test1" time="0.015"/>
   <testcase classname="HuffmanCodingTest" name="test2" time="0.001"/>
-  <testcase classname="HuffmanCodingTest" name="test4" time="0.005"/>
-  <testcase classname="HuffmanCodingTest" name="test5" time="0.012"/>
+  <testcase classname="HuffmanCodingTest" name="test3" time="0.005"/>
+  <testcase classname="HuffmanCodingTest" name="test4" time="0.001"/>
+  <testcase classname="HuffmanCodingTest" name="test5" time="0.006"/>
+  <testcase classname="HuffmanCodingTest" name="test6" time="0.001"/>
+  <testcase classname="HuffmanCodingTest" name="testBadFilePath" time="0.003"/>
   <testcase classname="HuffmanCodingTest" name="testExecutorNoFilename" time="0"/>
 </testsuite>

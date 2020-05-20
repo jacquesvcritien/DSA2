@@ -8,7 +8,6 @@ public class HuffmanCodingExecutor {
         if(args.length == 0|| args[0] == "")
             throw new NoFilePassedException("A filename should be passed");
 
-//        HuffmanCoding.initialiseFrequencies();
         FileOperation.populateInitFrequencies(args[0]);
         HuffmanCoding.buildTree();
         HuffmanCoding.generateCodes(HuffmanCoding.getRoot(), "");
