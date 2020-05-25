@@ -15,8 +15,8 @@
 			\begin{document}
 			\title{\includegraphics[scale = .6]{uom.png}
 				\linebreak 
-				\textbf{CPS2000 - Compiler Theory \& Practise}\linebreak\linebreak
-				\textbf{Assignment Part 1}\linebreak\linebreak
+				\textbf{ICS2210 - Data Structures and Algorithms 2}\linebreak\linebreak
+				\textbf{Project Coursework 2020}\linebreak\linebreak
 				\large{B.Sc Computer Science}
 				\date{}
 				\author{Jacques Vella Critien - 97500L}}
@@ -204,7 +204,7 @@
 		Then, if not, it is checked whether clauses is empty because if this is the case, we can say that the boolean expression is satisfiable and therefore, the assignments stored in the assignments global variable are printed one by one and true is returned.\\\\
 		The above were the base cases, and if none were reached, it means that we still have to perform some more operations before we get to know whether the expression is satisfiable or not. This is done by getting unit clauses one by one by calling \textbf{getUnitClause()} with the passed clauses as parameters and for each one, an assignment is set with the unit clause only literal's symbol as key and if it is negated the assignment is FALSE, otherwise, it is true. Moreover, for every unit clause, the 1-literal rule is applied exhaustively by calling \textbf{exhaustivelyApply1LiteralRule()} with the unit clause and clauses as parameters. \\\\
 		The next step involves getting the pure literals one by one by calling \textbf{getPureLiteral()} with the passed clauses as parameters and for each one, an assignment is set with the pure literals's symbol as key and if it is negated the assignment is FALSE, otherwise, it is true. Moreover, for every pure literal, the pure literal rule is applied exhaustively by calling \textbf{applyPureLiteralRule()} with the pure literal and clauses as parameters. \\\\ 
-		The final step involves getting a literal by calling the heuristic function \textbf{chooseLiterals()} with the passed clauses as parameters and the literal returned is added to the list of clauses. These clauses are then used as parameters to recall this function recursively until a base case is reached.
+		The final step involves getting a literal by calling the heuristic function \textbf{chooseLiterals()} with the remaining clauses as parameters. After this, a copy of the clauses is made and a positive literal of the symbol chosen is added to one copy of set of clauses while a negative literal of the symbol chosen by  \textbf{chooseLiterals()} is added to the other copy of set of clauses. Finally, these sets of clauses are then used as parameters to recall this function recursively until a base case is reached.
 		
 						
 		\end{enumerate}					
@@ -212,7 +212,7 @@
 		
 \subsection{How to run}
 
-In order to run the implementation for task 1, an additional class named \textbf{ParserExecutor} was created and in its main method, the command line arguments are obtained. These are joined together using a string builder and then they are parsed into clauses by calling the function \textbf{parseString(String)}. Finally, the function \textbf{DPLL()} is called with the clauses generated form the arguments to start checking the expression's satisfiability. 
+In order to run the implementation for task 1, an additional class named \textbf{ParserExecutor} was created and in its main method, the command line arguments are obtained. These are joined together using a string builder and then they are parsed into clauses by calling the function \textbf{parseString(String)}. Finally, the function \textbf{DPLL()} is called with the clauses generated form the arguments to start checking the expression's satisfiability. \textbf{It is important to note that the quotes before and after the expression may change according to the machine}.
 
 \begin{enumerate}
 \item Go to the directory \quotes{DSA2}
@@ -801,7 +801,7 @@ The most well known practical applications include:
 		
 		\subsection{How to run}
 
-In order to run the implementation for task 2, an additional class named \textbf{HuffmanCodingExecutor} was created and in its main method, the command line arguments are obtained. First it is checked if the any filenam is passed and i not, a \textbf{NoFilePassedException} is thrown. Otherwise, the filename of the input file is obtained from the arguments and by calling the function \textbf{populateInitFrequencies(String)}, the frequencies of each character are populated. Then, the function \textbf{buildTree()} to build the tree and is followed by calling \textbf{generateCodes()} with the root node and an empty string. Finally, the codes are printed by calling \textbf{printCodes()}.
+In order to run the implementation for task 2, an additional class named \textbf{HuffmanCodingExecutor} was created and in its main method, the command line arguments are obtained. First it is checked if the any filenam is passed and i not, a \textbf{NoFilePassedException} is thrown. Otherwise, the filename of the input file is obtained from the arguments and by calling the function \textbf{populateInitFrequencies(String)}, the frequencies of each character are populated. Then, the function \textbf{buildTree()} to build the tree and is followed by calling \textbf{generateCodes()} with the root node and an empty string. Finally, the codes are printed by calling \textbf{printCodes()}. \textbf{It is important to note that the quotes before and after the file name may change according to the machine}.
 
 \begin{enumerate}
 \item Go to the directory \quotes{DSA2}
@@ -836,7 +836,7 @@ The integration tests performed can be found below. It is important to note that
 		\underline{Description}\\
 		\indent This is an integration test for the HuffmanCoding() function. This is done by when given an input file with several characters, the number of different codes and the the character with the shortest code is asserted. The character with the shortest code should be the most frequent character in the input stream.\\\\
 		\underline{Input}\\
-		\indent The contents of the input file were \quotes{111111122222333jisjiajsadgwwbhdwwbdDDDDDDDDDDDDDDDDDDDDDDDDDDDDaaaaaa}\\	\\
+		\indent The contents of the input file were \\ \quotes{111111122222333jisjiajsadgwwbhdwwbdDDDDDDDDDDDDDDDDDDDDDDDDDDDDaaaaaa}\\	\\
 		\underline{Expected Output}\\
 		\indent The expected output should be `D' as the character having the shortest code and 13 as the number of different codes.\\\\
 		\underline{Actual Output}\\

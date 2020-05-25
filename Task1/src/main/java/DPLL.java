@@ -375,8 +375,8 @@ public class DPLL {
         Literal literal = chooseLiteral(clauses);
 
         //copy clauses
-//        Set<Clause> clauses2 = new HashSet<Clause>();
-//        clauses2.addAll(clauses);
+        Set<Clause> clauses2 = new HashSet<Clause>();
+        clauses2.addAll(clauses);
 
         //if literal is not null, add literal to clauses
         if(literal != null) {
@@ -385,21 +385,14 @@ public class DPLL {
             clause.addLiteral(literal);
             clauses.add(clause);
 
-//            //add another literal to the other set but negated
-//            Clause clause2 = new Clause();
-//            clause2.addLiteral(new Literal(literal.symbol, true));
-//            clauses2.add(clause2);
+            //add another literal to the other set but negated
+            Clause clause2 = new Clause();
+            clause2.addLiteral(new Literal(literal.getSymbol(), true));
+            clauses2.add(clause2);
         }
 
         //recursive call
-//        boolean val = DPLL(clauses);
-//        System.out.println("VAL1: "+val);
-//        boolean val2 =  DPLL(clauses2);
-//        System.out.println("VAL2: "+val2);
-
-//        if(val != val2)
-//            System.out.println("DIFF");
-        return DPLL(clauses);
+        return DPLL(clauses) || DPLL(clauses2);
     }
 
 
